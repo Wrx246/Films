@@ -1,0 +1,21 @@
+.close__wrapper {
+
+}
+
+.close__body {
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: gray;
+    padding: 5px 10px;
+}
+
+.close__body:hover {
+    cursor: pointer;
+    color: #a4a3a3;
+}
+
+.close__body:active {
+    cursor: pointer;
+    color: #5d5c5c;
+}

@@ -1,0 +1,44 @@
+.header {
+    background-color: #0a344b;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+.modal__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+
+.logout__wrapper {
+    padding: 10px 0px;
+}
+
+.search__body {
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 10px 15px;
+}
+
+.search__body:hover {
+     cursor: pointer;
+     color: #e1bf1f;
+     transition: .2s;
+ }
+
+.search__body:active {
+    cursor: pointer;
+    color: #705d0a;
+    transition: .2s;
+}
+
+.logo__wrapper {
+    padding: 10px 10px;
+}
+
+.logo__body {
+    width: 10vh;
+    height: 10vh;
+}

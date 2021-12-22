@@ -1,0 +1,17 @@
+.input {
+
+}
+
+.input__body {
+    height: 4vh;
+    width: 50vh;
+    border-radius: 20px;
+    border: 1px aliceblue solid;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.input__body:target {
+    border: 1px aliceblue solid;
+}
+

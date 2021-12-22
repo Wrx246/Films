@@ -1,0 +1,23 @@
+.logout__wrapper {
+
+}
+
+.logout__body {
+    width: 80px;
+    height: 40px;
+    background-color: deepskyblue;
+    border-radius: 20px;
+    border: 1px deepskyblue solid;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+}
+
+.logout__body:hover {
+    background-color: #49c8f3;
+}
+
+.logout__body:active {
+    background-color: #027da4;
+    border: 1px #027da4 solid;
+}

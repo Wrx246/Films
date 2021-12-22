@@ -1,0 +1,30 @@
+.navbar__wrapper {
+
+}
+
+.navbar__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.navbar__item {
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0px 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.navbar__item:hover {
+    cursor: pointer;
+    color: #e1bf1f;
+    transition: .2s;
+}
+
+.navbar__item:active {
+    cursor: pointer;
+    color: #705d0a;
+    transition: .2s;
+}
