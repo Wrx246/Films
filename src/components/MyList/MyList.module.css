@@ -1,0 +1,30 @@
+.myList__wrapper {
+    min-height: 90vh;
+    background: black;
+    box-sizing: border-box;
+    padding: 60px;
+}
+
+.myList__body {
+    width: 100%;
+    min-height: 50%;
+}
+
+.myList__group {
+    display: grid;
+    padding: 20px;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.myList__title {
+    display: block;
+    padding: 10px;
+    color: #e1bf1f;
+}
+
+.myList__line {
+    border-bottom: 2px solid #e1bf1f;
+}
+
+

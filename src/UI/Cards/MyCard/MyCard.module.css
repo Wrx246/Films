@@ -1,0 +1,51 @@
+.myCard__wrapper {
+    background: #0a344b;
+    width: 45vh;
+    height: 30vh;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.myCard__poster {
+    width: 100%;
+    height: 100%;
+}
+
+.MyCard__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.myCard__button {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bolder;
+    font-size: 25px;
+    color: #5d5c5c;
+    background: transparent;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+.myCard__button:hover {
+    color: #7e7d7d;
+    background: rgba(93, 92, 92, 0.37);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.myCard__button:active {
+    color: rgba(93, 92, 92, 0.37);
+    background: rgba(93, 92, 92, 0.37);
+    cursor: pointer;
+    transition: .2s;
+}

@@ -14,7 +14,7 @@ const Header = () => {
         return (
             <div className={st.header}>
                 <div className={st.logo__wrapper}>
-                    <a href="#"><img className={st.logo__body} src="../../assets/img/logo.png" alt="logo"/></a>
+                    <a href="#"><div className={st.logo__body} /></a>
                 </div>
                 <div className={st.modal__wrapper}>
                     <Navbar />
@@ -29,7 +29,7 @@ const Header = () => {
         return (
             <div className={st.header}>
                 <div className={st.logo__wrapper}>
-                    <a href="#"><img className={st.logo__body} src="../../assets/img/logo.png" alt="logo"/></a>
+                    <a href="#"><div className={st.logo__body} /></a>
                 </div>
                 <div className={st.modal__wrapper}>
                     <Input />

@@ -1,8 +1,8 @@
 .header {
-    background-color: #0a344b;
+    background-color: #202021;
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 0px 15px;
 }
 
 .modal__wrapper {
@@ -36,9 +36,10 @@
 
 .logo__wrapper {
     padding: 10px 10px;
+    background: url("../../assets/img/logo.png") no-repeat center;
 }
 
 .logo__body {
-    width: 10vh;
-    height: 10vh;
+    width: 5vh;
+    height: 5vh;
 }
