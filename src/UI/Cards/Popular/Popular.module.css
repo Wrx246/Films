@@ -1,11 +1,17 @@
 .popular__wrapper {
     width: 25vh;
     height: 40vh;
+    margin-right: 20px;
     background: #1a1a1a;
 }
 
 .popular__pic {
     background: rebeccapurple;
+    width: 25vh;
+    height: 30vh;
+}
+
+.pic__body {
     width: 25vh;
     height: 30vh;
 }
