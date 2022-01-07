@@ -1,22 +1,26 @@
 .content {
     background-color: #000409;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .popular__list {
-    display: flex;
-    padding: 10px;
-    justify-content: space-between;
+    /*display: grid;*/
+    /*grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));*/
+    /*grid-gap: 15px;*/
+    padding: 30px;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
 }
 
 .popular__wrapper {
     width: 70%;
+    min-height: 50vh;
     margin: 0 auto;
     padding-top: 30px;
     background: #027da4;
 }
 
 .popular__title {
-    padding-left: 10px;
+    padding-left: 30px;
     color: #e1bf1f;
 }

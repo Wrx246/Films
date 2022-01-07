@@ -7,8 +7,11 @@ import { Routes, Route} from "react-router-dom";
 import About from "./components/About/About";
 import TopRated from "./components/TopRated/TopRated";
 import MyList from "./components/MyList/MyList";
+import FilmDetails from "./components/FilmDetails/FilmDetails";
+import {useSelector} from "react-redux";
 
 const App = () => {
+    const movie = useSelector((state) => state.movieReducer.movie);
   return (
     <div className={st.App}>
         <Header />
@@ -17,6 +20,7 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/top_rated' element={<TopRated />} />
             <Route path='/my_list' element={<MyList />} />
+            <Route path='/movie/:id' element={<FilmDetails />} />
         </Routes>
         <Footer />
     </div>

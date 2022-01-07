@@ -1,6 +1,6 @@
 .content {
     background-color: #000409;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -19,6 +19,7 @@
 
 .rated__list {
     margin: 10px 10px;
+    margin-bottom: 0px;
 }
 
 .rated__item {
@@ -28,6 +29,10 @@
     border-bottom: 1px #ffffff solid;
     height: 10vh;
     background: #d9d8d8;
+}
+
+.rated__item:hover {
+    background: #b9b8b8;
 }
 
 .item__poster {
@@ -44,16 +49,20 @@
     text-decoration: none;
 }
 
-.item__title:hover {
-    text-decoration: underline;
+.title__body {
+    text-decoration: none;
 }
 
 .item__vote {
     color: gray;
+    padding-right: 25px;
 }
 
 .item__date {
     color: black;
+    font-family: Arial;
+    font-weight: bold;
+    padding-right: 8px;
 }
 
 .header__items {
@@ -72,4 +81,5 @@
 
 .header__title {
     width: 50vh;
+    padding-left: 20px;
 }

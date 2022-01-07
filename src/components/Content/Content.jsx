@@ -6,11 +6,13 @@ import BaseUrl from "../../API/BaseUrl";
 import {ApiKey} from "../../API/ApiKey";
 import {getPopularAction} from "../../Redux/Reducers";
 import axios from "axios";
+import {Link} from "react-router-dom";
 // import {fetchGetPopular} from "../../Redux/AsyncActions/GetPopular";
 
 const Content = () => {
-    const filmsData = useSelector((state) => state);
+    const filmsData = useSelector((state) => state.movieReducer.movie);
     const dispatch = useDispatch();
+
 
     const fetchGetPopular = async () => {
         const response = await axios
@@ -25,6 +27,7 @@ const Content = () => {
         fetchGetPopular();
     }, []);
 
+
     return (
         <div className={st.content}>
             <div className={st.popular__wrapper}>
@@ -32,7 +35,6 @@ const Content = () => {
                     Popular today
                 </h1>
                 <div className={st.popular__list}>
-                    {/*{movies.length > 0 && movies.map( movie => {<Popular key={movie.id} {...movie} />})}*/}
                     <Popular/>
                 </div>
             </div>
