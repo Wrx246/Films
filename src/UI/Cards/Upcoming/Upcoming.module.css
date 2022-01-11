@@ -1,4 +1,4 @@
-.popular__wrapper {
+.upcoming__wrapper {
     width: 25vh;
     height: 40vh;
     /*margin-right: 20px;*/
@@ -7,13 +7,13 @@
     transition: all 0.3s;
 }
 
-.popular__wrapper:hover {
+.upcoming__wrapper:hover {
     transform: scale(1.1);
     transition: all 0.3s;
     cursor: pointer;
 }
 
-.popular__pic {
+.upcoming__pic {
     background: rebeccapurple;
     width: 25vh;
     height: 30vh;
@@ -24,20 +24,19 @@
     height: 100%;
 }
 
-.popular__title {
+.upcoming__title {
     margin: 5px 5px;
 }
 
-.popular__title h3 {
+.upcoming__title h3 {
     color: white;
     font-weight: bold;
 }
 
-.popular__rate {
+.upcoming__rate {
     margin: 5px 5px;
 }
 
-.popular__rate p {
+.upcoming__rate p {
     color: gray;
 }
-

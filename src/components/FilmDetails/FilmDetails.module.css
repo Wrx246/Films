@@ -72,3 +72,24 @@
     height: 80%;
     margin-top: 50px;
 }
+
+.details__button {
+    background-color: rgba(255, 211, 0, 0);
+    border: 2px solid rgba(255, 206, 0, 0.51);
+    height: 50px;
+    width: 100px;
+    color: white;
+}
+
+.details__button:hover {
+    background-color: #ffc34a;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.details__button:active {
+    background-color: #8c6f27;
+    border: 2px solid #8c6f27;
+    transition: .2s;
+    cursor: pointer;
+}
