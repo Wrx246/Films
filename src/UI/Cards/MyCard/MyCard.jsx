@@ -8,6 +8,7 @@ const MyCard = () => {
     const movieList = useSelector((state) => state.movieReducer.watchList);
     const { poster_path, id, title } = movieList;
 
+
     return (
         <div className={st.myCard__wrapper}>
             <Link to={`/movie/${movieList.id}`} className={st.title__body}>

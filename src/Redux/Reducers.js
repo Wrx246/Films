@@ -5,6 +5,7 @@ export const ADD_TO_WATCH_LIST = "ADD_TO_WATCH_LIST";
 export const REMOVE_SELECTED_MOVIE = "REMOVE_SELECTED_MOVIE";
 export const GET_UPCOMING = "GET_UPCOMING";
 export const SET_SEARCH_FILMS = "SET_SEARCH_FILMS";
+export const REMOVE_SEARCH_FILM = "REMOVE_SEARCH_FILM";
 
 const initialState = {
     movie: [],
@@ -30,6 +31,8 @@ export const movieReducer = (state = initialState, {type, payload}) => {
             return {...state, movieDetails: []};
         case SET_SEARCH_FILMS:
             return {...state, searchFilm: payload};
+        case REMOVE_SEARCH_FILM:
+            return {...state, searchFilm: []};
         default:
             return state;
     }
@@ -42,3 +45,4 @@ export const removeSelectedMovieAction = () => ({type: REMOVE_SELECTED_MOVIE});
 export const addToWatchListAction = (payload) => ({type: ADD_TO_WATCH_LIST, payload});
 export const getUpcomingAction = (payload) => ({type: GET_UPCOMING, payload});
 export const setSearchFilmAction = (payload) => ({type: SET_SEARCH_FILMS, payload});
+export const removeSearchFilmAction = () => ({type: REMOVE_SEARCH_FILM});

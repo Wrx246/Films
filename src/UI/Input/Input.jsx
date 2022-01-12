@@ -11,7 +11,6 @@ const Input = () => {
     const dispatch = useDispatch();
 
     const fetchSearchFilm = async () => {
-        debugger
         const response = await BaseUrl
             .get(`/search/movie?api_key=${ApiKey}&query=${searchFilm}`)
             .catch((err) => {
@@ -22,7 +21,6 @@ const Input = () => {
     }
 
     const handleOnSubmit = (e) => {
-        debugger
         e.preventDefault();
         fetchSearchFilm();
         setSearchFilm("");

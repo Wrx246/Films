@@ -4,6 +4,7 @@ import Input from "../../UI/Input/Input";
 import Logout from "../../UI/Buttons/LogoutButton/Logout";
 import Navbar from "./Navbar/Navbar";
 import Close from "../../UI/Buttons/CloseButton/Close";
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const [searchBar, setSearchBar] = useState(false);

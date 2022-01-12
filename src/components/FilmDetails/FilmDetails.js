@@ -29,6 +29,10 @@ const FilmDetails = () => {
         }
     }, [dispatch, id])
 
+    const addToWatch = (id) => {
+        dispatch(addToWatchListAction(id));
+    }
+
     return (
         <div className={st.details__wrapper}>
             <div className={st.details__body} key={id}>
@@ -38,7 +42,7 @@ const FilmDetails = () => {
                     <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
                     <p className={st.details__count}>Budget: <br/>{movieDetails.budget}$</p>
                     <p className={st.details__time}>Runtimve: <br/>{movieDetails.runtime} min</p>
-                    <button type={"submit"} className={st.details__button}>Add to favorite</button>
+                    <button type={"submit"} onClick={addToWatch(id)} className={st.details__button}>Add to favorite</button>
                 </div>
                 <p className={st.details__description}>{movieDetails.overview}</p>
                 <img className={st.details__img}
