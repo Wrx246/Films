@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import st from './Logout.module.css';
 
 const Logout = () => {
     return (
         <div className={st.logout__wrapper}>
-            <button className={st.logout__body}>Sign in</button>
+            <Link to='/registration'>
+                <button className={st.logout__body}>Sign in</button>
+            </Link>
         </div>
     )
 }

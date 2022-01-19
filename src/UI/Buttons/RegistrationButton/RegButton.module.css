@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.regButton__body {
+    width: 270px;
+    height: 50px;
+    background-color: rgb(124, 116, 196);
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 18%;
+    font-size: 25px;
+    color: white;
+}
+
+.regButton__body:hover {
+    background-color: rgb(169, 162, 231);
+}
+
+.regButton__body:active {
+    background-color: rgb(91, 83, 161);
+}

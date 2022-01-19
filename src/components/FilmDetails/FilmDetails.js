@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import st from "./FilmDetails.module.css";
 import axios from "axios";
 import {ApiImage, ApiImageBig, ApiKey} from "../../API/ApiKey";
@@ -11,7 +11,7 @@ const FilmDetails = () => {
     const movieDetails = useSelector((state) => state.movieReducer.movieDetails);
     const {id} = useParams();
     const dispatch = useDispatch();
-    const { poster_path, release_date, title, runtime, budget, vote_average, overview} = movieDetails;
+    const {poster_path, release_date, title, runtime, budget, vote_average, overview} = movieDetails;
 
     const fetchGetDetails = (id) => async (dispatch) => {
         const response = await axios
@@ -29,9 +29,10 @@ const FilmDetails = () => {
         }
     }, [dispatch, id])
 
-    const addToWatch = (id) => {
-        dispatch(addToWatchListAction(id));
+    const addToWatch = (movieDetails) => {
+        dispatch(addToWatchListAction(movieDetails));
     }
+
 
     return (
         <div className={st.details__wrapper}>
@@ -41,8 +42,8 @@ const FilmDetails = () => {
                     <p className={st.details__date}>Release: <br/>{movieDetails.release_date}</p>
                     <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
                     <p className={st.details__count}>Budget: <br/>{movieDetails.budget}$</p>
-                    <p className={st.details__time}>Runtimve: <br/>{movieDetails.runtime} min</p>
-                    <button type={"submit"} onClick={addToWatch(id)} className={st.details__button}>Add to favorite</button>
+                    <p className={st.details__time}>Runtime: <br/>{movieDetails.runtime} min</p>
+                    <button type={"submit"} onClick={addToWatch(movieDetails)} className={st.details__button}>Add to favorite</button>
                 </div>
                 <p className={st.details__description}>{movieDetails.overview}</p>
                 <img className={st.details__img}
