@@ -1,10 +1,14 @@
 .popular__wrapper {
     width: 25vh;
-    height: 40vh;
+    height: 35vh;
     /*margin-right: 20px;*/
     margin: 20px 20px;
     background: #1a1a1a;
     transition: all 0.3s;
+}
+
+.title__body {
+    text-decoration: none;
 }
 
 .popular__wrapper:hover {
@@ -15,8 +19,8 @@
 
 .popular__pic {
     background: rebeccapurple;
-    width: 25vh;
-    height: 30vh;
+    width: 100%;
+    height: 100%;
 }
 
 .pic__body {
@@ -24,20 +28,23 @@
     height: 100%;
 }
 
-.popular__title {
+/* .popular__title {
     margin: 5px 5px;
-}
+} */
 
-.popular__title h3 {
+/* .popular__title h3 {
     color: white;
     font-weight: bold;
-}
+} */
 
 .popular__rate {
-    margin: 5px 5px;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    border-radius: 3px;
+    margin: 10px;
+    background-color: yellowgreen;
 }
-
-.popular__rate p {
-    color: gray;
-}
-

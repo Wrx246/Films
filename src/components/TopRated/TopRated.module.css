@@ -32,6 +32,8 @@
 }
 
 .rated__item:hover {
+    transition: .3s;
+    transform: scale(1.1);
     background: #b9b8b8;
 }
 
@@ -54,13 +56,16 @@
 }
 
 .item__vote {
+    position: relative;
+    right: 0;
     color: gray;
+    font-size: 17px;
     padding-right: 25px;
 }
 
 .item__date {
     color: black;
-    font-family: Arial;
+    font-family: sans-serif;
     font-weight: bold;
     padding-right: 8px;
 }

@@ -1,10 +1,8 @@
 import React, {useEffect} from "react";
 import st from './TopRated.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import axios from "axios";
-import {ApiKey} from "../../API/ApiKey";
-import {getPopularAction, getTopRatedAction} from "../../Redux/Reducers";
 import {Link} from "react-router-dom";
+import { fetchGetTopRated } from "../../API/Services/FilmService";
 
 
 
@@ -12,20 +10,9 @@ const TopRated = () => {
     const movie = useSelector((state) => state.movieReducer.movie);
     const dispatch = useDispatch();
 
-    const fetchGetTopRated = async () => {
-        const response = await axios
-            .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}`)
-            .catch((err) => {
-                console.log("Error ", err);
-            });
-        dispatch(getTopRatedAction(response.data.results))
-    }
-
     useEffect(() => {
-        fetchGetTopRated();
-    }, []);
-
-    console.log(movie);
+        dispatch(fetchGetTopRated());
+    }, [dispatch]);
 
     return (
         <div className={st.content}>

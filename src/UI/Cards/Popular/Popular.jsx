@@ -2,11 +2,7 @@ import React, {useEffect} from "react";
 import st from './Popular.module.css';
 import Slider from "react-slick";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchGetPopular} from "../../../Redux/AsyncActions/GetPopular";
-import BaseUrl from "../../../API/BaseUrl";
 import {ApiImageNormal, ApiKey} from "../../../API/ApiKey";
-import {getPopularAction} from "../../../Redux/Reducers";
-import baseUrl from "../../../API/BaseUrl";
 import {Link} from "react-router-dom";
 
 const Popular = () => {
@@ -18,7 +14,7 @@ const Popular = () => {
         slidesToShow: 5,
         slidesToScroll: 3
     };
-
+ 
     const renderPopular = movie.map((movie) => {
         const {id, poster_path, title, vote_average} = movie;
         return (
@@ -26,16 +22,19 @@ const Popular = () => {
                 <Link to={`/movie/${movie.id}`} className={st.title__body}>
                     <div className={st.popular__wrapper} key={id}>
                         <div className={st.popular__pic}>
+                        <div className={st.popular__rate}>
+                            <p>{vote_average}</p>
+                        </div>
                             <img className={st.pic__body}
                                  src={`${ApiImageNormal}` + poster_path}
                                  alt={title}/>
                         </div>
-                        <div className={st.popular__title}>
+                        {/* <div className={st.popular__title}>
                             <h3>{title}</h3>
-                        </div>
-                        <div className={st.popular__rate}>
+                        </div> */}
+                        {/* <div className={st.popular__rate}>
                             <p>{vote_average}</p>
-                        </div>
+                        </div> */}
                     </div>
                 </Link>
             </div>
@@ -47,5 +46,7 @@ const Popular = () => {
         </Slider>
     )
 }
+
+
 
 export default Popular;

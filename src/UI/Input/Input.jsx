@@ -1,28 +1,15 @@
 import React, {useState} from "react";
 import st from './Input.module.css'
-import axios from "axios";
-import {ApiKey} from "../../API/ApiKey";
-import {setSearchFilmAction} from "../../Redux/Reducers";
 import {useDispatch} from "react-redux";
-import BaseUrl from "../../API/BaseUrl";
+import { fetchSearchFilm } from "../../API/Services/FilmService";
 
 const Input = () => {
     const [ searchFilm, setSearchFilm ] = useState('');
     const dispatch = useDispatch();
 
-    const fetchSearchFilm = async () => {
-        const response = await BaseUrl
-            .get(`/search/movie?api_key=${ApiKey}&query=${searchFilm}`)
-            .catch((err) => {
-                console.log("Error ", err);
-            });
-        dispatch(setSearchFilmAction(response.data.results))
-        console.log(response.data.results)
-    }
-
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        fetchSearchFilm();
+        dispatch(fetchSearchFilm(searchFilm));
         setSearchFilm("");
     }
 

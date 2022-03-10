@@ -10,6 +10,7 @@ import MyList from "./components/MyList/MyList";
 import FilmDetails from "./components/FilmDetails/FilmDetails";
 import {useSelector} from "react-redux";
 import Registration from "./components/Registration/Registration";
+import SignIn from "./components/SignIn/SignIn";
 
 const App = () => {
     const movie = useSelector((state) => state.movieReducer.movie);
@@ -23,6 +24,7 @@ const App = () => {
             <Route path='/my_list' element={<MyList />} />
             <Route path='/movie/:id' element={<FilmDetails />} />
             <Route path='/registration' element={<Registration />} />
+            <Route path='/login' element={<SignIn />} />
         </Routes>
         <Footer />
     </div>

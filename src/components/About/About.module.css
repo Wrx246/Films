@@ -1,3 +1,51 @@
 .about__wrapper {
-    background-color: cornflowerblue;
+    /* background-color: #000409; */
+    /* background-color: skyblue; */
+    height: 100vh;
+    background: url("../../assets/img/about__bckg.jpg") no-repeat center;
+}
+
+.about__title {
+    padding: 15px 45px;
+    color: #e1bf1f;
+}
+
+.about__body {
+    margin: 45px 40px;
+    color: white;
+    font-size: 20px;
+}
+
+.about__body h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.about__technology {
+    display: flex;
+    justify-content: center;
+}
+
+.about__technology ul {
+    list-style-type: none;
+}
+.about__technology li {
+    padding-left: 10px;
+}
+
+.about__links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.about__links ul {
+    list-style-type: none;
+}
+
+.about__links a {
+    color: #e1bf1f;
 }
