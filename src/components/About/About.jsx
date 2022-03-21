@@ -24,19 +24,19 @@ const About = () => {
                         <a href="https://www.themoviedb.org"> https://www.themoviedb.org</a>
                     </p>
                     <p>
-                        All code is in the public domain
-                        <a href="https://github.com/Wrx246/Films"> https://github.com/Wrx246/Films</a>
+                        All code is in the public domain 
+                        <a href="https://github.com/Wrx246/Films">https://github.com/Wrx246/Films</a>
                     </p>
                     <ul>
                         <h3>My contacts:</h3>
                         <li>
                             LinkedIn - 
-                            <a href="https://www.linkedin.com/in/maxim-kuzmianok-01013b200/"> https://www.linkedin.com/in/maxim-kuzmianok-01013b200/
+                            <a href="https://www.linkedin.com/in/mkuzmianok/">https://www.linkedin.com/in/mkuzmianok/
                             </a>
                         </li>
                         <li>
                             Telegram -
-                            <a href="https://t.me/jstwrx"> https://t.me/jstwrx
+                            <a href="https://t.me/jstwrx">https://t.me/jstwrx
                             </a>
                         </li>
                         <li>

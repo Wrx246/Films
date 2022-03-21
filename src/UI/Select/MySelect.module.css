@@ -1,0 +1,13 @@
+.select__wrapper {
+    display: flex;
+    margin: 15px;
+}
+
+.select__body {
+    min-width: 50px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-family: Arial;
+    font-size: 16px;
+    background-color: rgba(223, 222, 222, 0.349);
+}

@@ -1,5 +1,5 @@
 import { useFormik, validateYupSchema } from 'formik';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RegButton from '../../UI/Buttons/RegistrationButton/RegButton';
 import st from './Registration.module.css';
@@ -9,12 +9,12 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { ApiKey } from '../../API/ApiKey';
 import { registrationAction } from '../../Redux/AuthReducer';
-import API from '../../API/Services/AuthService';
+import API, { fetchRegistration, postRegistrationData, redirectRegistration } from '../../API/Services/AuthService';
 
 
 const Registration = () => {
 
-    const [ email, setEmail ] = useState('');
+    const [ firstName, setFirstName ] = useState('');
     const [ password, setPassword ] = useState('');
 
     const dispatch = useDispatch();
@@ -47,17 +47,25 @@ const Registration = () => {
         })
     });
 
-    const fetchRegistration = async () => {
-        const response = await API
-            .get (`https://api.themoviedb.org/3/authentication/token/new?api_key=${ApiKey}`)
-            .catch((err) => {
-                console.log("Error ", err);
-            });
-            localStorage.setItem('request_token', response.data.request_token)
-            dispatch(registrationAction(response.data))
+    useEffect(() => {
+        dispatch(fetchRegistration());
+        // redirectRegistration();
+        // if (localStorage.getItem('request_token')) {
+        //     postRegistrationData(firstName, password);
+        // }
+    }, [])
+
+    // const fetchRegistration = async () => {
+    //     const response = await API
+    //         .get (`https://api.themoviedb.org/3/authentication/token/new?api_key=${ApiKey}`)
+    //         .catch((err) => {
+    //             console.log("Error ", err);
+    //         });
+    //         localStorage.setItem('request_token', response.data.request_token)
+    //         dispatch(registrationAction(response.data))
             
-        console.log(response);
-    }
+    //     console.log(response);
+    // }
 
     return (
         <div className={st.reg__wrapper}>
@@ -71,8 +79,8 @@ const Registration = () => {
                             className={st.reg__input}
                             type='text'
                             placeholder='Name'
-                            onChange={formik.handleChange}
-                            value={formik.values.firstName} />
+                            onChange={e => setFirstName(e.target.value)}
+                            value={firstName} />
                         {formik.errors.firstName ? <p>{formik.errors.firstName}</p> : null}
                         {/* <label htmlFor='lastname'>LastName</label>
                         <input
@@ -89,8 +97,9 @@ const Registration = () => {
                             className={st.reg__input}
                             type='email'
                             placeholder='Email'
-                            onChange={ e => setEmail(e.target.value)}
-                            value={email} />
+                            // onChange={ e => setEmail(e.target.value)}
+                            // value={email} 
+                            />
                         {formik.errors.email ? <p>{formik.errors.email}</p> : null}
                         <label htmlFor='password'>Password</label>
                         <input
@@ -111,7 +120,7 @@ const Registration = () => {
                             value={formik.values.confirmPassword} />
                         {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
                     </div>
-                    <RegButton fetchRegistration={fetchRegistration} name='Registration' />
+                    <RegButton postRegistrationData={postRegistrationData} firstName={firstName} password={password} name='Registration' />
                 </form>
                 <div className={st.reg__description}>
                     <p>

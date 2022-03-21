@@ -37,7 +37,7 @@ const Header = () => {
                     <Close setSearchBar={setSearchBar} />
                 </div>
                 <div className={st.logout__wrapper}>
-                    <Logout/>
+                    <Logout />
                 </div>
             </div>
         )

@@ -1,12 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import st from './RegButton.module.css';
 
 
-const RegButton = ({ name, fetchRegistration}) => {
+const RegButton = ({ firstName, password, name, postRegistrationData}) => {
+
+    const dispatch = useDispatch();
 
     const handlerSubmit = (e) => {
         e.preventDefault();
-        fetchRegistration()
+        dispatch(postRegistrationData({firstName, password}));
     }
 
     return (

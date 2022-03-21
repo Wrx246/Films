@@ -1,18 +1,26 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import st from './TopRated.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import { fetchGetTopRated } from "../../API/Services/FilmService";
+import MySelect from "../../UI/Select/MySelect";
+import { getTopRatedAction, sortTopFilmsAction } from "../../Redux/Reducers";
 
 
 
 const TopRated = () => {
     const movie = useSelector((state) => state.movieReducer.movie);
     const dispatch = useDispatch();
-
+    const [selectedSort, setSelectedSort] = useState('');
+    
     useEffect(() => {
         dispatch(fetchGetTopRated());
     }, [dispatch]);
+
+    const sortFilms = (sort) => {
+        setSelectedSort(sort);
+        dispatch(sortTopFilmsAction(sort))
+    }
 
     return (
         <div className={st.content}>
@@ -20,6 +28,14 @@ const TopRated = () => {
                 <h1 className={st.rated__title}>
                     Top rated films
                 </h1>
+                <MySelect 
+                value = {selectedSort}
+                onChange = {sortFilms}
+                options={[
+                    {value: 'title', name: 'Title'},
+                    {value: 'vote_average', name: 'Vote'},
+                    {value: 'release_date', name: 'Release date'}
+                ]}/> 
                 <div className={st.rated__list}>
                     <div className={st.header__items}>
                         <p className={st.header__poster}></p>
