@@ -1,15 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import st from './RegButton.module.css';
 
 
 const RegButton = ({ firstName, password, name, postRegistrationData}) => {
+    const token = useSelector((state) => state.authReducer.token);
 
     const dispatch = useDispatch();
 
     const handlerSubmit = (e) => {
         e.preventDefault();
-        dispatch(postRegistrationData({firstName, password}));
+        dispatch(postRegistrationData(token));
     }
 
     return (

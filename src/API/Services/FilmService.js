@@ -36,8 +36,8 @@ export const fetchGetUpcoming = () => {
 
 export const fetchGetDetails = (id) => {
     return async (dispatch) => {
-        const response = await axios
-            .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}`)
+        const response = await API
+            .get(`/movie/${id}?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getFilmDetailsAction(response.data))
@@ -47,8 +47,8 @@ export const fetchGetDetails = (id) => {
 
 export const fetchGetTopRated = () => {
     return async (dispatch) => {
-        const response = await axios
-            .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}`)
+        const response = await API
+            .get(`/movie/top_rated?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getTopRatedAction(response.data.results))

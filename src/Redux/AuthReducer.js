@@ -3,6 +3,7 @@ export const REGISTRATION = "REGISTRATION";
 
 
 const initialState = {
+    token: '',
     firstName: '',
     email: '',
     password: '',
@@ -18,10 +19,7 @@ export const authReducer = (state = initialState, {type, payload}) => {
         case REGISTRATION:
             return {
                 ...state,
-                isLogin: true,
-                firstName: [...state.firstName, payload.firstName],
-                email: [...state.email, payload.email],
-                password: [...state.password, payload.password],
+                token: [...state.token, payload]
             }
         default:
             return state;

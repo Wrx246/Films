@@ -1,22 +1,23 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import st from './App.module.css';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Content from "./components/Content/Content";
 import { Routes, Route} from "react-router-dom";
-import About from "./components/About/About";
-import TopRated from "./components/TopRated/TopRated";
-import MyList from "./components/MyList/MyList";
-import FilmDetails from "./components/FilmDetails/FilmDetails";
-import {useSelector} from "react-redux";
-import Registration from "./components/Registration/Registration";
-import SignIn from "./components/SignIn/SignIn";
+import Preloader from "./UI/Preloader/Preloader";
+
+const Content = lazy(() => import("./components/Content/Content"));
+const About = lazy(() => import("./components/About/About"));
+const TopRated = lazy(() => import("./components/TopRated/TopRated"));
+const MyList = lazy(() => import("./components/MyList/MyList"));
+const FilmDetails = lazy(() => import("./components/FilmDetails/FilmDetails"));
+const Registration = lazy(() => import("./components/Registration/Registration"));
+const SignIn = lazy(() => import("./components/SignIn/SignIn"));
 
 const App = () => {
-    const movie = useSelector((state) => state.movieReducer.movie);
   return (
     <div className={st.App}>
         <Header />
+        <Suspense fallback={<div className={st.preloader}><Preloader/></div>}>
         <Routes>
             <Route exact path='/' element={<Content />} />
             <Route path='/about' element={<About />} />
@@ -26,6 +27,7 @@ const App = () => {
             <Route path='/registration' element={<Registration />} />
             <Route path='/login' element={<SignIn />} />
         </Routes>
+        </Suspense>
         <Footer />
     </div>
   );

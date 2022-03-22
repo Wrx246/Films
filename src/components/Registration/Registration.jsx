@@ -6,16 +6,16 @@ import st from './Registration.module.css';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ApiKey } from '../../API/ApiKey';
 import { registrationAction } from '../../Redux/AuthReducer';
 import API, { fetchRegistration, postRegistrationData, redirectRegistration } from '../../API/Services/AuthService';
 
 
 const Registration = () => {
-
-    const [ firstName, setFirstName ] = useState('');
-    const [ password, setPassword ] = useState('');
+    const token = useSelector((state) => state.authReducer.token);
+    const [firstName, setFirstName] = useState('');
+    const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
 
@@ -49,23 +49,9 @@ const Registration = () => {
 
     useEffect(() => {
         dispatch(fetchRegistration());
-        // redirectRegistration();
-        // if (localStorage.getItem('request_token')) {
-        //     postRegistrationData(firstName, password);
-        // }
-    }, [])
+    }, [dispatch])
 
-    // const fetchRegistration = async () => {
-    //     const response = await API
-    //         .get (`https://api.themoviedb.org/3/authentication/token/new?api_key=${ApiKey}`)
-    //         .catch((err) => {
-    //             console.log("Error ", err);
-    //         });
-    //         localStorage.setItem('request_token', response.data.request_token)
-    //         dispatch(registrationAction(response.data))
-            
-    //     console.log(response);
-    // }
+    console.log(token);
 
     return (
         <div className={st.reg__wrapper}>
@@ -82,24 +68,15 @@ const Registration = () => {
                             onChange={e => setFirstName(e.target.value)}
                             value={firstName} />
                         {formik.errors.firstName ? <p>{formik.errors.firstName}</p> : null}
-                        {/* <label htmlFor='lastname'>LastName</label>
-                        <input
-                            id='lastName'
-                            className={st.reg__input}
-                            type='text'
-                            placeholder='LastName'
-                            onChange={formik.handleChange}
-                            value={formik.values.lastName} />
-                        {formik.errors.lastName ? <p>{formik.errors.lastName}</p> : null} */}
                         <label htmlFor='email'>Email</label>
                         <input
                             id='email'
                             className={st.reg__input}
                             type='email'
                             placeholder='Email'
-                            // onChange={ e => setEmail(e.target.value)}
-                            // value={email} 
-                            />
+                        // onChange={ e => setEmail(e.target.value)}
+                        // value={email} 
+                        />
                         {formik.errors.email ? <p>{formik.errors.email}</p> : null}
                         <label htmlFor='password'>Password</label>
                         <input
@@ -107,7 +84,7 @@ const Registration = () => {
                             className={st.reg__input}
                             type='password'
                             placeholder='Password'
-                            onChange={ e => setPassword(e.target.password)}
+                            onChange={e => setPassword(e.target.password)}
                             value={password} />
                         {formik.errors.password ? <p>{formik.errors.password}</p> : null}
                         <label htmlFor='ConfirmPassword'>Confirm Password</label>
@@ -120,7 +97,11 @@ const Registration = () => {
                             value={formik.values.confirmPassword} />
                         {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
                     </div>
-                    <RegButton postRegistrationData={postRegistrationData} firstName={firstName} password={password} name='Registration' />
+                    <RegButton
+                        postRegistrationData={postRegistrationData}
+                        firstName={firstName}
+                        password={password}
+                        name='Registration' />
                 </form>
                 <div className={st.reg__description}>
                     <p>
