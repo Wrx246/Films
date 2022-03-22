@@ -4,8 +4,9 @@ import Slider from "react-slick";
 import {useDispatch, useSelector} from "react-redux";
 import {ApiImageNormal, ApiKey} from "../../../API/ApiKey";
 import {Link} from "react-router-dom";
+import Preloader from "../../Preloader/Preloader";
 
-const Popular = () => {
+const Popular = (toggleIsFetching) => {
     const movie = useSelector((state) => state.movieReducer.movie);
     const settings = {
         dots: false,
@@ -14,7 +15,7 @@ const Popular = () => {
         slidesToShow: 5,
         slidesToScroll: 3
     };
- 
+
     const renderPopular = movie.map((movie) => {
         const {id, poster_path, title, vote_average} = movie;
         return (

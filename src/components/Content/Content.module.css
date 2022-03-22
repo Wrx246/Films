@@ -24,3 +24,9 @@
     padding-left: 30px;
     color: #e1bf1f;
 }
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}

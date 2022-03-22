@@ -12,6 +12,7 @@ import { fetchGetDetails } from "../../API/Services/FilmService";
 
 const FilmDetails = () => {
     const movieDetails = useSelector((state) => state.movieReducer.movieDetails);
+    const toggleIsFetching = useSelector((state) => state.movieReducer.isFetching);
     const { id } = useParams();
     const dispatch = useDispatch();
     const { poster_path, release_date, title, runtime, budget, vote_average, overview } = movieDetails;
@@ -27,7 +28,15 @@ const FilmDetails = () => {
         dispatch(addToWatchListAction(movieDetails));
     }
 
-    // if (movieDetails.length) {
+    if (toggleIsFetching === true) {
+        return (
+            <div className={st.details__wrapper}>
+                <div className={st.preloader}>
+                    <Preloader />
+                </div>
+            </div>
+        )
+    } else {
         return (
             <div className={st.details__wrapper}>
                 <div className={st.details__body} key={id}>
@@ -49,17 +58,7 @@ const FilmDetails = () => {
                 </div>
             </div>
         )
-    // } else {
-    //     return (
-    //         <div className={st.details__wrapper}>
-    //             <div className={st.details__preloader}>
-    //                 <Preloader />
-    //             </div>
-    //         </div>
-    //     )
-    // }
-
-
+    }
 }
 
 export default FilmDetails;

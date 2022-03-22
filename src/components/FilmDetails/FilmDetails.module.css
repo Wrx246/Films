@@ -100,3 +100,9 @@
    justify-content: center;
    align-items: center;
 }
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}

@@ -3,6 +3,12 @@
     min-height: 100vh;
 }
 
+.preloader {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
 
 .rated__wrapper {
     width: 70%;
