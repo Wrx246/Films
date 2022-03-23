@@ -5,37 +5,29 @@ import RegButton from '../../UI/Buttons/RegistrationButton/RegButton';
 import st from './Registration.module.css';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { ApiKey } from '../../API/ApiKey';
-import { registrationAction } from '../../Redux/AuthReducer';
-import API, { fetchRegistration, postRegistrationData, redirectRegistration } from '../../API/Services/AuthService';
+import API, { createSessionId, fetchRegistration, postRegistrationData } from '../../API/Services/AuthService';
 
 
 const Registration = () => {
-    const token = useSelector((state) => state.authReducer.token);
-    const [firstName, setFirstName] = useState('');
+    const session_id = useSelector((state) => state.authReducer.session_id)   
+    const request_token = useSelector((state) => state.authReducer.request_token);
+    const confirmed_token = useSelector((state) => state.authReducer.confirmed_token);
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
 
+    
     const formik = useFormik({
         initialValues: {
-            firstName: "",
-            lastName: "",
-            email: "",
+            username: "",
             password: "",
             confirmPassword: "",
         },
         validationSchema: Yup.object({
-            firstName: Yup.string()
+            username: Yup.string()
                 .max(15, "Must be 15 characters or less")
-                .required("Required"),
-            lastName: Yup.string()
-                .max(20, "Must be 20 characters or less")
-                .required("Required"),
-            email: Yup.string()
-                .email("Invalid email")
                 .required("Required"),
             password: Yup.string()
                 .min(5, "Must be 5 characters or more")
@@ -46,48 +38,56 @@ const Registration = () => {
                 .required("Required"),
         })
     });
-
+    
     useEffect(() => {
         dispatch(fetchRegistration());
-    }, [dispatch])
+        if(confirmed_token){
+            dispatch(createSessionId(confirmed_token)); 
+        }
+    }, [dispatch, confirmed_token])
 
-    console.log(token);
+    const setRequestToken = () => {
+        dispatch(postRegistrationData(username, password, request_token));
+        
+    };
 
+    if(session_id) {
+        return (
+            <div className={st.reg__wrapper}>
+                <div className={st.reg__body}>
+                    <h2 className={st.reg__title}>Login successfull</h2>
+                    <div className={st.reg__description}>
+                    <Link to='/'>Home</Link>
+                    </div>
+                </div>
+            </div>
+        )
+    }
     return (
         <div className={st.reg__wrapper}>
             <div className={st.reg__body}>
-                <h2 className={st.reg__title}>Registration</h2>
+                <h2 className={st.reg__title}>Login to your account</h2>
                 <form>
                     <div className={st.reg__form}>
-                        <label htmlFor='name'>Name</label>
+                        <label htmlFor='name'>Username</label>
                         <input
-                            id='firstName'
+                            id='username'
                             className={st.reg__input}
                             type='text'
-                            placeholder='Name'
-                            onChange={e => setFirstName(e.target.value)}
-                            value={firstName} />
-                        {formik.errors.firstName ? <p>{formik.errors.firstName}</p> : null}
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            id='email'
-                            className={st.reg__input}
-                            type='email'
-                            placeholder='Email'
-                        // onChange={ e => setEmail(e.target.value)}
-                        // value={email} 
-                        />
-                        {formik.errors.email ? <p>{formik.errors.email}</p> : null}
+                            placeholder='Username'
+                            onChange={e => setUsername(e.target.value)}
+                            value={username} />
+                        {formik.errors.username ? <p>{formik.errors.username}</p> : null}
                         <label htmlFor='password'>Password</label>
                         <input
                             id='password'
                             className={st.reg__input}
                             type='password'
                             placeholder='Password'
-                            onChange={e => setPassword(e.target.password)}
+                            onChange={e => setPassword(e.target.value)}
                             value={password} />
                         {formik.errors.password ? <p>{formik.errors.password}</p> : null}
-                        <label htmlFor='ConfirmPassword'>Confirm Password</label>
+                        {/* <label htmlFor='ConfirmPassword'>Confirm Password</label>
                         <input
                             id='confirmPassword'
                             className={st.reg__input}
@@ -95,17 +95,19 @@ const Registration = () => {
                             placeholder='Confirm Password'
                             onChange={formik.handleChange}
                             value={formik.values.confirmPassword} />
-                        {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null}
+                        {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null} */}
                     </div>
                     <RegButton
                         postRegistrationData={postRegistrationData}
-                        firstName={firstName}
+                        setRequestToken={setRequestToken}
+                        username={username}
                         password={password}
-                        name='Registration' />
+                        name='Login' />
                 </form>
                 <div className={st.reg__description}>
                     <p>
-                        If you already have an account you can <Link to='/login'>Login</Link>
+                        In order to use the service, you must first register on:
+                        <a href="https://www.themoviedb.org/signup">The Movie DB website</a>
                     </p>
                 </div>
             </div>

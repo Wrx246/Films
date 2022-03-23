@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 
 const Header = () => {
     const [searchBar, setSearchBar] = useState(false);
+    const username = useSelector((state) => state.authReducer.username);
 
 
 
@@ -22,7 +23,7 @@ const Header = () => {
                     <a onClick={ () => setSearchBar(true)} className={st.search__body}>Search</a>
                 </div>
                 <div className={st.logout__wrapper}>
-                    <Logout/>
+                    <Logout username={username} />
                 </div>
             </div>
         )
@@ -37,7 +38,7 @@ const Header = () => {
                     <Close setSearchBar={setSearchBar} />
                 </div>
                 <div className={st.logout__wrapper}>
-                    <Logout />
+                    <Logout username={username} />
                 </div>
             </div>
         )

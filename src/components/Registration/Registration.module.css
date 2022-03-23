@@ -18,6 +18,8 @@
 }
 
 .reg__title {
+    display: flex;
+    justify-content: center;
     color: #e1bf1f;
     font-size: 35px;
     padding: 20px;
@@ -48,4 +50,13 @@
     bottom: 0px; */
     padding: 5% 15%;
     color: white;
+}
+
+.reg__description a{
+    color: white;
+}
+
+.reg__description a:hover{
+    transition: .2s;
+    color: rgb(61, 48, 241);
 }

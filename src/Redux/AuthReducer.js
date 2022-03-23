@@ -1,30 +1,44 @@
-export const LOGIN = "LOGIN";
-export const REGISTRATION = "REGISTRATION";
+export const SET_REQUEST_TOKEN = "SET_REQUEST_TOKEN";
+export const SET_CONFIRMED_TOKEN = "SET_CONFIRMED_TOKEN";
+export const SET_SESSION_ID = "SET_SESSION_ID";
+export const SET_USERNAME = "SET_USERNAME";
+
 
 
 const initialState = {
-    token: '',
-    firstName: '',
-    email: '',
-    password: '',
-    isLogin: false,
+    request_token: null,
+    confirmed_token: null,
+    session_id: null,
+    username: null,
 }
 
 export const authReducer = (state = initialState, {type, payload}) => {
     switch (type) {
-        case LOGIN:
+        
+        case SET_REQUEST_TOKEN:
             return {
-                
+                ...state, request_token: payload
             }
-        case REGISTRATION:
+        case SET_CONFIRMED_TOKEN:
             return {
-                ...state,
-                token: [...state.token, payload]
+                ...state, confirmed_token: payload
+            }
+        case SET_SESSION_ID:
+            return {
+                ...state, session_id: payload
+            }
+        case SET_USERNAME:
+            return {
+                ...state, username: payload
             }
         default:
             return state;
     }
 }
 
-export const loginAction = (payload) => ({type: LOGIN, payload});
-export const registrationAction = (payload) => ({type: REGISTRATION, payload});
+
+export const setRequestTokenAction = (payload) => ({type: SET_REQUEST_TOKEN, payload});
+export const setConfirmedTokenAction = (payload) => ({type: SET_CONFIRMED_TOKEN, payload});
+export const setSessionIdAction = (payload) => ({type: SET_SESSION_ID, payload});
+export const setUsernameAction = (payload) => ({type: SET_USERNAME, payload});
+
