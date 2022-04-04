@@ -23,7 +23,7 @@ export const fetchRegistration = () => {
             .get(`/authentication/token/new?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(setRequestTokenAction(response.data.request_token))
-                console.log(response);
+                // console.log(response);
             })
             .catch((err) => {
                 console.log("Error ", err);
@@ -42,10 +42,11 @@ export const postRegistrationData = (username, password, request_token) => {
             })
             .then(response => {
                 dispatch(setConfirmedTokenAction(response.data.request_token))
-                console.log(response)
+                // console.log(response)
             })
             .then(response => {
                 dispatch(setUsernameAction(username))
+                localStorage.setItem('username', JSON.stringify(username))
             })
             .catch((err) => {
                 console.log("Error ", err);
@@ -62,6 +63,36 @@ export const createSessionId = (confirmed_token) => {
             .then(response => {
                 dispatch(setSessionIdAction(response.data.session_id))
                 // console.log(response)
+                localStorage.setItem('sessionId', response.data.session_id);
+            })
+            .catch((err) => {
+                console.log("Error ", err)
+            })
+    }
+}
+
+export const createAccountId = (session_id) => {
+    return async (dispatch) => {
+        const response = await API
+            .get(`/account?api_key=${ApiKey}&session_id=${session_id}`)
+            .then(response => {
+                dispatch(createAccountId(response.data.id))
+                localStorage.setItem('accountId', response.data.id);
+            })
+            .catch((err) => {
+                console.log("Error ", err)
+            })
+    }
+}
+
+export const deleteSessionId = (session) => {
+    return async (dispatch) => {
+        const response = await API
+            .delete(`/authentication/session?api_key=${ApiKey}&session_id=${session}`)
+            .then(response => {
+                localStorage.removeItem('accountId')
+                localStorage.removeItem('sessionId')
+                localStorage.removeItem('username')
             })
             .catch((err) => {
                 console.log("Error ", err)

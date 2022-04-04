@@ -3,12 +3,12 @@
 }
 
 
-.reg__wrapper {
+.logout__wrapper {
     background-color: #000409;
     min-height: 90vh;
 }
 
-.reg__body {
+.logout__body {
     width: 50vh;
     height: 80vh;
     background-color: rgb(35, 30, 83);
@@ -17,7 +17,7 @@
     margin: 2% 38%;
 }
 
-.reg__title {
+.logout__title {
     display: flex;
     justify-content: center;
     color: #e1bf1f;
@@ -25,56 +25,39 @@
     padding: 20px;
 }
 
-.reg__input {
-    border: none;
-    height: 40px;
-    width: 300px;
-    background-color: rgb(73, 61, 179);
-    color: black;
-    font-size: 20px;
-    font-family: monospace;
-    outline:none;
-    padding-left: 5px;
-}
-
-.reg__input:focus {
-    background-color: #fff;
-}
-
-.reg__form {
-    padding:  10% 15%;
-}
-
-.reg__description {
+.logout__description {
     /* position: absolute;
     bottom: 0px; */
     padding: 5% 15%;
     color: white;
 }
 
-.reg__description a{
+.logout__description a{
     color: white;
 }
 
-.reg__description a:hover{
+.logout__description a:hover{
     transition: .2s;
     color: rgb(61, 48, 241);
 }
 
-.home__button {
+
+.logoutButton__body {
+    width: 270px;
+    height: 50px;
+    background-color: rgb(124, 116, 196);
     border: none;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 23%;
+    margin-left: 10%;
     font-size: 25px;
     color: white;
-    text-decoration: none;
 }
 
-.home__button:hover {
-    color: rgb(169, 162, 231);
+.logoutButton__body:hover {
+    background-color: rgb(169, 162, 231);
 }
 
-.home__button:active {
-    color: rgb(91, 83, 161);
+.logoutButton__body:active {
+    background-color: rgb(91, 83, 161);
 }

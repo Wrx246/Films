@@ -6,11 +6,12 @@ import st from './Registration.module.css';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import API, { createSessionId, fetchRegistration, postRegistrationData } from '../../API/Services/AuthService';
+import API, { createAccountId, createSessionId, deleteSessionId, fetchRegistration, postRegistrationData } from '../../API/Services/AuthService';
+import Logout from './Logout/Logout';
 
 
 const Registration = () => {
-    const session_id = useSelector((state) => state.authReducer.session_id)   
+    const session_id = useSelector((state) => state.authReducer.session_id)
     const request_token = useSelector((state) => state.authReducer.request_token);
     const confirmed_token = useSelector((state) => state.authReducer.confirmed_token);
     const [username, setUsername] = useState('');
@@ -18,7 +19,10 @@ const Registration = () => {
 
     const dispatch = useDispatch();
 
-    
+    const accountId = localStorage.getItem('accountId');
+    const session = localStorage.getItem('sessionId');
+
+
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -38,31 +42,43 @@ const Registration = () => {
                 .required("Required"),
         })
     });
-    
+
     useEffect(() => {
         dispatch(fetchRegistration());
-        if(confirmed_token){
-            dispatch(createSessionId(confirmed_token)); 
+        if (confirmed_token) {
+            dispatch(createSessionId(confirmed_token));
         }
-    }, [dispatch, confirmed_token])
+        if (session_id) {
+            dispatch(createAccountId(session_id))
+        }
+    }, [dispatch, confirmed_token, session_id])
 
     const setRequestToken = () => {
         dispatch(postRegistrationData(username, password, request_token));
-        
     };
 
-    if(session_id) {
+    const deleteSession = () => {
+        dispatch(deleteSessionId(session));
+    }
+
+    if (accountId) {
+        return (
+            <Logout deleteSession={deleteSession} />
+        )
+    }
+
+    if (session_id) {
         return (
             <div className={st.reg__wrapper}>
                 <div className={st.reg__body}>
                     <h2 className={st.reg__title}>Login successfull</h2>
-                    <div className={st.reg__description}>
-                    <Link to='/'>Home</Link>
+                    <div className={st.reg__description}> 
+                        <Link to='/' className={st.home__button}>Return to home</Link>
                     </div>
                 </div>
             </div>
         )
-    }
+    } 
     return (
         <div className={st.reg__wrapper}>
             <div className={st.reg__body}>
@@ -87,18 +103,8 @@ const Registration = () => {
                             onChange={e => setPassword(e.target.value)}
                             value={password} />
                         {formik.errors.password ? <p>{formik.errors.password}</p> : null}
-                        {/* <label htmlFor='ConfirmPassword'>Confirm Password</label>
-                        <input
-                            id='confirmPassword'
-                            className={st.reg__input}
-                            type='password'
-                            placeholder='Confirm Password'
-                            onChange={formik.handleChange}
-                            value={formik.values.confirmPassword} />
-                        {formik.errors.confirmPassword ? <p>{formik.errors.confirmPassword}</p> : null} */}
                     </div>
                     <RegButton
-                        postRegistrationData={postRegistrationData}
                         setRequestToken={setRequestToken}
                         username={username}
                         password={password}

@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import st from "./FilmDetails.module.css";
 import axios from "axios";
 import { ApiImage, ApiImageBig, ApiKey } from "../../API/ApiKey";
-import { addToWatchListAction, getFilmDetailsAction, removeSelectedMovieAction } from "../../Redux/Reducers";
+import { getFilmDetailsAction, removeSelectedMovieAction } from "../../Redux/Reducers";
+import { addToWatchListAction } from "../../Redux/AccountReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import WatchButton from "../../UI/Buttons/WatchButton/WatchButton";
@@ -25,7 +26,7 @@ const FilmDetails = () => {
     }, [dispatch, id])
 
     const addToWatch = (movieDetails) => {
-        dispatch(addToWatchListAction(movieDetails));
+        // dispatch(addToWatchListAction(movieDetails));
     }
 
     if (toggleIsFetching === true) {
