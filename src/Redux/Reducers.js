@@ -7,12 +7,14 @@ export const SET_SEARCH_FILMS = "SET_SEARCH_FILMS";
 export const REMOVE_SEARCH_FILM = "REMOVE_SEARCH_FILM";
 export const SORT_TOP_FILMS = "SORT_TOP_FILMS";
 export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+export const GET_FILM_TRAILER = "GET_FILM_TRAILER";
 
 const initialState = {
     movie: [],
     upcomingMovie: [],
     movieDetails: [],
     searchFilm: [],
+    trailer: [],
     isFetching: true,
 }
 
@@ -36,6 +38,8 @@ export const movieReducer = (state = initialState, { type, payload }) => {
             return { ...state, movie: state.movie.slice().sort((a, b) => a[payload].toString().localeCompare(b[payload])) };
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetching: payload };
+        case GET_FILM_TRAILER:
+            return { ...state, trailer: payload };
         default:
             return state;
     }
@@ -50,3 +54,4 @@ export const setSearchFilmAction = (payload) => ({ type: SET_SEARCH_FILMS, paylo
 export const removeSearchFilmAction = () => ({ type: REMOVE_SEARCH_FILM });
 export const sortTopFilmsAction = (payload) => ({ type: SORT_TOP_FILMS, payload });
 export const toggleIsFetchingAction = (payload) => ({ type: TOGGLE_IS_FETCHING, payload });
+export const getFilmTrailerAction = (payload) => ({ type: GET_FILM_TRAILER, payload });

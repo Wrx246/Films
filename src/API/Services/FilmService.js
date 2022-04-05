@@ -1,11 +1,13 @@
 import axios from "axios";
-import { 
-    getFilmDetailsAction, 
-    getPopularAction, 
-    getTopRatedAction, 
-    getUpcomingAction, 
-    setSearchFilmAction, 
-    toggleIsFetchingAction} from "../../Redux/Reducers";
+import {
+    getFilmDetailsAction,
+    getFilmTrailerAction,
+    getPopularAction,
+    getTopRatedAction,
+    getUpcomingAction,
+    setSearchFilmAction,
+    toggleIsFetchingAction
+} from "../../Redux/Reducers";
 import { ApiKey } from "../ApiKey";
 import API from "./AuthService";
 
@@ -18,7 +20,9 @@ export const fetchGetPopular = () => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getPopularAction(response.data.results))
             })
-        
+            .catch((err) => {
+                console.log("Error ", err);
+            });
     }
 
 }
@@ -31,6 +35,9 @@ export const fetchGetUpcoming = () => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getUpcomingAction(response.data.results))
             })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
     }
 }
 
@@ -42,6 +49,9 @@ export const fetchGetDetails = (id) => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getFilmDetailsAction(response.data))
             })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
     }
 }
 
@@ -53,6 +63,9 @@ export const fetchGetTopRated = () => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getTopRatedAction(response.data.results))
             })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
     }
 }
 
@@ -64,5 +77,22 @@ export const fetchSearchFilm = (searchFilm) => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(setSearchFilmAction(response.data.results))
             })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchGetTrailer = (id) => {
+    return async (dispatch) => {
+        const response = await API
+            .get(`/movie/${id}/videos?api_key=${ApiKey}`)
+            .then(response => {
+                dispatch(getFilmTrailerAction(response.data.results))
+                localStorage.setItem('trailerKey', response.data.results[0].key);
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
     }
 }

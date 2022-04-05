@@ -1,9 +1,15 @@
 import React from "react";
 import st from "./WatchButton.module.css";
 
-const WatchButton = () => {
+const WatchButton = ({watchTrailer}) => {
+
+    const handlerSubmit = (e) => {
+        e.preventDefault()
+        watchTrailer();
+    }
+
     return (
-        <button type="button" className={st.watchButton}>Watch trailer</button>
+        <button type="button" onClick={handlerSubmit} className={st.watchButton}>Watch trailer</button>
     )
 }
 

@@ -1,0 +1,46 @@
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: rgb(31, 30, 30);
+    min-width: 350px;
+    min-height: 100px;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeButton {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: gray;
+    left: -30px;
+    top: 5px;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+    color: #a4a3a3;
+}
+
+.closeButton:active {
+    cursor: pointer;
+    color: #5d5c5c;
+}
