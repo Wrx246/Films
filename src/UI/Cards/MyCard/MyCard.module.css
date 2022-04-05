@@ -1,10 +1,16 @@
 .myCard__wrapper {
     background: #0a344b;
     width: 45vh;
-    height: 30vh;
+    height: 40vh;
     position: relative;
     text-align: center;
     color: white;
+    transition: .2s;
+}
+
+.myCard__wrapper:hover {
+    transition: .2s;
+    transform: scale(1.12);
 }
 
 .myCard__poster {

@@ -11,17 +11,19 @@ import Preloader from "../../UI/Preloader/Preloader";
 import { fetchGetDetails, fetchGetTrailer } from "../../API/Services/FilmService";
 import Modal from "../../UI/Cards/Modal/Modal";
 import ReactPlayer from "react-player";
+import { addToWatchList, getWatchList } from "../../API/Services/AccountService";
 
 
 const FilmDetails = () => {
     const movieDetails = useSelector((state) => state.movieReducer.movieDetails);
     const toggleIsFetching = useSelector((state) => state.movieReducer.isFetching);
+    // const watchList = useSelector((state) => state.accountReducer.watchList);
     const { id } = useParams();
     const dispatch = useDispatch();
     const [modal, setModal] = useState(false);
     const [playTrailer, setPlayTrailer] = useState(false);
 
-    
+    const movieId = movieDetails.id;
     const trailerKey = localStorage.getItem('trailerKey');
 
     useEffect(() => {
@@ -32,8 +34,8 @@ const FilmDetails = () => {
         }
     }, [dispatch, id])
 
-    const addToWatch = (movieDetails) => {
-        // dispatch(addToWatchListAction(movieDetails));
+    const addToWatch = () => {
+        dispatch(addToWatchList(movieId))
     }
 
     const watchTrailer = () => {
@@ -62,7 +64,7 @@ const FilmDetails = () => {
                         <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
                         <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
                         <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
-                        <button type={"submit"} onClick={addToWatch(movieDetails)} className={st.details__button}>Add to favorite</button>
+                        <button type={"submit"} onClick={addToWatch} className={st.details__button}>Add to favorite</button>
                     </div>
                     <div className={st.details__bottom}>
                         <p className={st.details__description}>{movieDetails.overview}</p>

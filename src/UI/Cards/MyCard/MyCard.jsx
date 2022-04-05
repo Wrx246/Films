@@ -1,20 +1,17 @@
 import React from "react";
 import st from './MyCard.module.css';
-import {ApiImageNormal} from "../../../API/ApiKey";
-import {useSelector} from "react-redux";
+import {ApiImageBig, ApiImageNormal} from "../../../API/ApiKey";
 import {Link} from "react-router-dom";
 
-const MyCard = () => {
-    const movieList = useSelector((state) => state.movieReducer.watchList);
-    const { poster_path, id, title } = movieList;
+const MyCard = ({id, title, poster_path}) => {
 
 
     return (
         <div className={st.myCard__wrapper}>
-            <Link to={`/movie/${movieList.id}`} className={st.title__body}>
-                <img className={st.myCard__poster} src={`${ApiImageNormal}` + poster_path} alt={title}/>
+            <Link to={`/movie/${id}`} className={st.title__body}>
+                <img className={st.myCard__poster} src={`${ApiImageBig}` + poster_path} alt={title}/>
                 <button className={st.myCard__button} type="button">X</button>
-                <p className={st.MyCard__title}>{title}</p>
+                {/* <p className={st.MyCard__title}>{title}</p> */}
             </Link>
         </div>
     )
