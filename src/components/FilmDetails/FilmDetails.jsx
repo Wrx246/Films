@@ -3,7 +3,7 @@ import st from "./FilmDetails.module.css";
 import axios from "axios";
 import { ApiImage, ApiImageBig, ApiKey } from "../../API/ApiKey";
 import { getFilmDetailsAction, removeSelectedMovieAction } from "../../Redux/Reducers";
-import { addToWatchListAction } from "../../Redux/AccountReducer";
+import { addToWatchListAction, checkFavoriteMovieAction } from "../../Redux/AccountReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import WatchButton from "../../UI/Buttons/WatchButton/WatchButton";
@@ -12,27 +12,31 @@ import { fetchGetDetails, fetchGetTrailer } from "../../API/Services/FilmService
 import Modal from "../../UI/Cards/Modal/Modal";
 import ReactPlayer from "react-player";
 import { addToWatchList, getWatchList } from "../../API/Services/AccountService";
+import FavoriteButton from "../../UI/Buttons/FavoriteButton/FavoriteButton";
 
 
 const FilmDetails = () => {
     const movieDetails = useSelector((state) => state.movieReducer.movieDetails);
     const toggleIsFetching = useSelector((state) => state.movieReducer.isFetching);
-    // const watchList = useSelector((state) => state.accountReducer.watchList);
+    const checkWatchList = useSelector((state) => state.accountReducer.checkWatchList);
     const { id } = useParams();
     const dispatch = useDispatch();
     const [modal, setModal] = useState(false);
+    const [favorite, setFavorite] = useState('')
     const [playTrailer, setPlayTrailer] = useState(false);
-
     const movieId = movieDetails.id;
     const trailerKey = localStorage.getItem('trailerKey');
-
+    
     useEffect(() => {
         dispatch(fetchGetDetails(id));
         dispatch(fetchGetTrailer(id));
-        return () => {
-            dispatch(removeSelectedMovieAction());
-        }
-    }, [dispatch, id])
+        dispatch(checkFavoriteMovieAction(id))
+        console.log(checkWatchList)
+        // console.log(id)
+        // return () => {
+        //     dispatch(removeSelectedMovieAction());
+        // }
+    }, [id, checkWatchList])
 
     const addToWatch = () => {
         dispatch(addToWatchList(movieId))
@@ -64,7 +68,7 @@ const FilmDetails = () => {
                         <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
                         <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
                         <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
-                        <button type={"submit"} onClick={addToWatch} className={st.details__button}>Add to favorite</button>
+                        <FavoriteButton addToWatch={addToWatch} ></FavoriteButton>
                     </div>
                     <div className={st.details__bottom}>
                         <p className={st.details__description}>{movieDetails.overview}</p>

@@ -7,7 +7,7 @@ const CloseButton = ({setSearchBar}) => {
     const dispatch = useDispatch();
 
     const removeSearchList = () => {
-        dispatch(removeSearchFilmAction());
+        // dispatch(removeSearchFilmAction());
         setSearchBar(false)
     }
 

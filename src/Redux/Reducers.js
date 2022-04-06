@@ -31,7 +31,7 @@ export const movieReducer = (state = initialState, { type, payload }) => {
         case REMOVE_SELECTED_MOVIE:
             return { ...state, movieDetails: [] };
         case SET_SEARCH_FILMS:
-            return { ...state, searchFilm: payload };  // Добавить отдельную страницу для поиска фильмов, чтоб не перекрывалась кнопка логинизации
+            return { ...state, searchFilm: payload };
         case REMOVE_SEARCH_FILM:
             return { ...state, searchFilm: [] };
         case SORT_TOP_FILMS:

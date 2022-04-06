@@ -1,0 +1,26 @@
+.content {
+    background-color: #000409;
+    min-height: 100vh;
+}
+
+.search__list {
+    padding: 30px;
+}
+
+.search__wrapper {
+    width: 70%;
+    min-height: 50vh;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.search__title {
+    padding-left: 30px;
+    color: #e1bf1f;
+}
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}

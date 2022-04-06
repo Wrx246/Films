@@ -11,6 +11,7 @@ const TopRated = lazy(() => import("./components/TopRated/TopRated"));
 const MyList = lazy(() => import("./components/MyList/MyList"));
 const FilmDetails = lazy(() => import("./components/FilmDetails/FilmDetails"));
 const Registration = lazy(() => import("./components/Registration/Registration"));
+const Search = lazy(() => import("./components/Search/Search"));
 // const SignIn = lazy(() => import("./components/SignIn/SignIn"));
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/my_list' element={<MyList />} />
             <Route path='/movie/:id' element={<FilmDetails />} />
             <Route path='/registration' element={<Registration />} />
+            <Route path='/search' element={<Search />} />
             {/* <Route path='/login' element={<SignIn />} /> */}
         </Routes>
         </Suspense>

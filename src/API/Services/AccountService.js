@@ -21,6 +21,20 @@ export const addToWatchList = (movieId) => {
     }
 }
 
+export const removeFromWatchList = (id) => {
+    return async (dispatch) => {
+        const response = await API
+            .post(`/account/${accountId}/watchlist?api_key=${ApiKey}&language=en-US&page=1&session_id=${session_id}`, {
+                "media_type": "movie",
+                "media_id": id,
+                "watchlist": false
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
 
 export const getWatchList = () => {
     return async (dispatch) => {

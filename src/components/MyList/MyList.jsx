@@ -2,17 +2,22 @@ import React, { useEffect } from "react";
 import st from './MyList.module.css';
 import MyCard from "../../UI/Cards/MyCard/MyCard";
 import { useDispatch, useSelector } from "react-redux";
-import { getWatchList } from "../../API/Services/AccountService";
+import { getWatchList, removeFromWatchList } from "../../API/Services/AccountService";
 
 const MyList = () => {
     const watchList = useSelector((state) => state.accountReducer.watchList);
-    console.log(watchList)
+    // console.log(watchList)
+    
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getWatchList())
     }, [])
+
+    const removeFilm = (id) => {
+        dispatch(removeFromWatchList(id));
+    }
 
     const watch = localStorage.getItem('watchList')
 
@@ -23,8 +28,7 @@ const MyList = () => {
                 <div className={st.myList__line}></div>
                 <div className={st.myList__group}>
                     {watchList.map((watchList) => {
-                        const { id, title, poster_path } = watchList
-                        return ( <MyCard title={title} poster_path={poster_path} key={id} watchList={watchList} /> )
+                        return ( <MyCard removeFilm={removeFilm} watchList={watchList} /> )
                     })}
                 </div>
             </div>

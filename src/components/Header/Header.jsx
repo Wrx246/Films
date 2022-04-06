@@ -3,12 +3,10 @@ import st from './Header.module.css';
 import Input from "../../UI/Input/Input";
 import Navbar from "./Navbar/Navbar";
 import Close from "../../UI/Buttons/CloseButton/Close";
-import {useSelector} from "react-redux";
 import LoginButton from '../../UI/Buttons/LoginButton/LoginButton';
 
 const Header = () => {
     const [searchBar, setSearchBar] = useState(false);
-    // const username = useSelector((state) => state.authReducer.username);
     const session_id = localStorage.getItem('sessionId');
     const username = JSON.parse(localStorage.getItem('username'))
 
@@ -21,8 +19,7 @@ const Header = () => {
                     <a href="#"><div className={st.logo__body} /></a>
                 </div>
                 <div className={st.modal__wrapper}>
-                    <Navbar />
-                    <a onClick={ () => setSearchBar(true)} className={st.search__body}>Search</a>
+                    <Navbar setSearchBar={setSearchBar} />
                 </div>
                 <div className={st.logout__wrapper}>
                     { session_id ? 

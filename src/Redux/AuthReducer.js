@@ -23,7 +23,7 @@ export const authReducer = (state = initialState, {type, payload}) => {
             return {
                 ...state, confirmed_token: payload
             }
-        case SET_SESSION_ID: // Сохранить айди сессии в локал сторадж, чтоб можно было вместо селектора обращаться к хранилищу
+        case SET_SESSION_ID:
             return {
                 ...state, session_id: payload
             }

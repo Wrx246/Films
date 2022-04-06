@@ -1,0 +1,29 @@
+.favoriteButton {
+    background-color: rgba(255, 211, 0, 0);
+    border: 2px solid rgba(255, 206, 0, 0.51);
+    height: 50px;
+    width: 100px;
+    color: white;
+}
+
+.favoriteButton:hover {
+    background-color: #ffc34a;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.favoriteButton:active {
+    background-color: #8c6f27;
+    border: 2px solid #8c6f27;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.disabled {
+    background-color: #68ff42;
+    border: 2px solid #68ff42;
+    height: 50px;
+    width: 100px;
+    color: white;
+    cursor: auto;
+}

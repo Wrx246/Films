@@ -51,7 +51,7 @@ const Registration = () => {
         if (session_id) {
             dispatch(createAccountId(session_id))
         }
-    }, [dispatch, confirmed_token, session_id])
+    }, [confirmed_token, session_id])
 
     const setRequestToken = () => {
         dispatch(postRegistrationData(username, password, request_token));

@@ -18,7 +18,7 @@ const TopRated = () => {
 
     useEffect(() => {
         dispatch(fetchGetTopRated());
-    }, [dispatch]);
+    }, []);
 
     const sortFilms = (sort) => {
         setSelectedSort(sort);

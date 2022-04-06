@@ -12,9 +12,10 @@
 
 .myList__group {
     display: grid;
-    padding: 30px;
+    justify-content: center;
+    padding: 40px;
     grid-gap: 45px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .myList__title {
