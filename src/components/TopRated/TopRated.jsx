@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchGetTopRated } from "../../API/Services/FilmService";
 import MySelect from "../../UI/Select/MySelect";
-import { getTopRatedAction, sortTopFilmsAction } from "../../Redux/Reducers";
+import { sortTopFilmsAction } from "../../Redux/Reducers";
 import Preloader from "../../UI/Preloader/Preloader";
 
 
@@ -62,7 +62,7 @@ const TopRated = () => {
                             <p className={st.header__date}>Release date</p>
                         </div>
                         {movie.map((movie) => {
-                            const { id, title, poster_path, release_date, vote_average } = movie;
+                            const { id } = movie;
                             return (
                                 <Link to={`/movie/${movie.id}`} className={st.title__body}>
                                     <div className={st.rated__item} key={id}>

@@ -6,20 +6,16 @@ import { getWatchList, removeFromWatchList } from "../../API/Services/AccountSer
 
 const MyList = () => {
     const watchList = useSelector((state) => state.accountReducer.watchList);
-    // console.log(watchList)
     
-
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getWatchList())
-    }, [])
+    }, [watchList])
 
     const removeFilm = (id) => {
         dispatch(removeFromWatchList(id));
     }
-
-    const watch = localStorage.getItem('watchList')
 
     return (
         <div className={st.myList__wrapper}>

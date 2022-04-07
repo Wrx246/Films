@@ -4,11 +4,13 @@ import Input from "../../UI/Input/Input";
 import Navbar from "./Navbar/Navbar";
 import Close from "../../UI/Buttons/CloseButton/Close";
 import LoginButton from '../../UI/Buttons/LoginButton/LoginButton';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const [searchBar, setSearchBar] = useState(false);
     const session_id = localStorage.getItem('sessionId');
     const username = JSON.parse(localStorage.getItem('username'))
+    const isLogin = useSelector((state) => state.authReducer.isLogin)
 
 
 
@@ -22,7 +24,7 @@ const Header = () => {
                     <Navbar setSearchBar={setSearchBar} />
                 </div>
                 <div className={st.logout__wrapper}>
-                    { session_id ? 
+                    { isLogin === true || session_id ? 
                     <LoginButton name={username} /> : 
                     <LoginButton name={"Login"} />}
                     

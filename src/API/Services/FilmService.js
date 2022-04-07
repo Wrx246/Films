@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
     getFilmDetailsAction,
     getFilmTrailerAction,
@@ -14,7 +13,7 @@ import API from "./AuthService";
 
 export const fetchGetPopular = () => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/movie/popular?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
@@ -29,7 +28,7 @@ export const fetchGetPopular = () => {
 
 export const fetchGetUpcoming = () => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/movie/upcoming?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
@@ -43,7 +42,7 @@ export const fetchGetUpcoming = () => {
 
 export const fetchGetDetails = (id) => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/movie/${id}?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
@@ -57,7 +56,7 @@ export const fetchGetDetails = (id) => {
 
 export const fetchGetTopRated = () => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/movie/top_rated?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
@@ -71,7 +70,7 @@ export const fetchGetTopRated = () => {
 
 export const fetchSearchFilm = (searchFilm) => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/search/movie?api_key=${ApiKey}&query=${searchFilm}`)
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
@@ -85,7 +84,7 @@ export const fetchSearchFilm = (searchFilm) => {
 
 export const fetchGetTrailer = (id) => {
     return async (dispatch) => {
-        const response = await API
+        await API
             .get(`/movie/${id}/videos?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(getFilmTrailerAction(response.data.results))

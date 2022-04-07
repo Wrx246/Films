@@ -1,10 +1,10 @@
 import React from "react";
 import st from './Close.module.css';
-import {useDispatch, useSelector} from "react-redux";
-import {removeSearchFilmAction} from "../../../Redux/Reducers";
+// import {useDispatch} from "react-redux";
+// import {removeSearchFilmAction} from "../../../Redux/Reducers";
 
 const CloseButton = ({setSearchBar}) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const removeSearchList = () => {
         // dispatch(removeSearchFilmAction());

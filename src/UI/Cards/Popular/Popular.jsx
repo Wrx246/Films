@@ -1,10 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import st from './Popular.module.css';
 import Slider from "react-slick";
-import {useDispatch, useSelector} from "react-redux";
-import {ApiImageNormal, ApiKey} from "../../../API/ApiKey";
+import {useSelector} from "react-redux";
+import {ApiImageNormal} from "../../../API/ApiKey";
 import {Link} from "react-router-dom";
-import Preloader from "../../Preloader/Preloader";
 
 const Popular = (toggleIsFetching) => {
     const movie = useSelector((state) => state.movieReducer.movie);

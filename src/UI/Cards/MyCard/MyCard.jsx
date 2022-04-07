@@ -1,6 +1,6 @@
 import React from "react";
 import st from './MyCard.module.css';
-import {ApiImageBig, ApiImageNormal} from "../../../API/ApiKey";
+import {ApiImageBig} from "../../../API/ApiKey";
 import {Link} from "react-router-dom";
 
 const MyCard = ({watchList, removeFilm}) => {

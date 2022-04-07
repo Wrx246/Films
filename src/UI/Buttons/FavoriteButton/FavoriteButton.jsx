@@ -2,17 +2,18 @@ import React from "react";
 import st from './FavoriteButton.module.css';
 
 
-const FavoriteButton = ({ addToWatch, children, disabled, setDisabled }) => {
+const FavoriteButton = ({ addToWatch }) => {
+
+    // const [ disabled, setDisabled ] = useState(false)
 
     const rootStyle = [st.favoriteButton]
 
-    if (disabled) {
-        rootStyle.push(st.disabled)
-    }
+    // if (disabled) {
+    //     rootStyle.push(st.disabled)
+    // }
 
     const handlerClick = (e) => {
         e.preventDefault();
-        // setDisabled(false)
         addToWatch();
     }
 

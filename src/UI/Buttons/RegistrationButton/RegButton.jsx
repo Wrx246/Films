@@ -1,11 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createSessionId } from '../../../API/Services/AuthService';
 import st from './RegButton.module.css';
 
 
 const RegButton = ({ name, setRequestToken }) => {
-
 
     const handlerSubmit = (e) => {
         e.preventDefault();
