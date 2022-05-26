@@ -3,8 +3,9 @@ import st from './Content.module.css';
 import Popular from "../../UI/Cards/Popular/Popular";
 import { useDispatch, useSelector } from "react-redux";
 import Upcoming from "../../UI/Cards/Upcoming/Upcoming";
-import { fetchGetPopular, fetchGetUpcoming } from "../../API/Services/FilmService";
+import { fetchGetNowPlaying, fetchGetPopular, fetchGetUpcoming } from "../../API/Services/FilmService";
 import Preloader from "../../UI/Preloader/Preloader";
+import NowPlaying from "../../UI/Cards/NowPlaying/NowPlaying";
 
 
 const Content = () => {
@@ -14,6 +15,7 @@ const Content = () => {
     useEffect(() => {
         dispatch(fetchGetPopular());
         dispatch(fetchGetUpcoming());
+        dispatch(fetchGetNowPlaying());
     }, []);
 
         if (toggleIsFetching === true) {
@@ -30,6 +32,14 @@ const Content = () => {
                     <div className={st.popular__wrapper}>
                         <h1 className={st.popular__title}>
                             Upcoming in cinema
+                        </h1>
+                        <div className={st.preloader}>
+                            <Preloader />
+                        </div>
+                    </div>
+                    <div className={st.popular__wrapper}>
+                        <h1 className={st.popular__title}>
+                            Now Playing
                         </h1>
                         <div className={st.preloader}>
                             <Preloader />
@@ -54,6 +64,14 @@ const Content = () => {
                         </h1>
                         <div className={st.popular__list}>
                             <Upcoming />
+                        </div>
+                    </div>
+                    <div className={st.popular__wrapper}>
+                        <h1 className={st.popular__title}>
+                            Now Playing
+                        </h1>
+                        <div className={st.popular__list}>
+                            <NowPlaying />
                         </div>
                     </div>
                 </div>

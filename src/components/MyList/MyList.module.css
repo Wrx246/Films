@@ -1,6 +1,6 @@
 .myList__wrapper {
     min-height: 90vh;
-    background: black;
+    background: rgb(31,31,31);
     box-sizing: border-box;
     padding: 60px;
 }

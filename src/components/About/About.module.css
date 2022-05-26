@@ -1,8 +1,8 @@
 .about__wrapper {
     /* background-color: #000409; */
     /* background-color: skyblue; */
-    height: 100vh;
-    background: url("../../assets/img/about__bckg.jpg") no-repeat center;
+    min-height: 90vh;
+    background-color: rgb(31,31,31);
 }
 
 .about__title {
@@ -38,8 +38,13 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
+}
+
+.about__links p {
+    margin: 20px 50px 0px 0px;
+    max-width: 250px;
 }
 
 .about__links ul {

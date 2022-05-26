@@ -1,7 +1,9 @@
 import {
     getFilmDetailsAction,
     getFilmTrailerAction,
+    getNowPlayingAction,
     getPopularAction,
+    getSimilarMoviesAction,
     getTopRatedAction,
     getUpcomingAction,
     setSearchFilmAction,
@@ -33,6 +35,34 @@ export const fetchGetUpcoming = () => {
             .then(response => {
                 dispatch(toggleIsFetchingAction(false))
                 dispatch(getUpcomingAction(response.data.results))
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchGetNowPlaying = () => {
+    return async (dispatch) => {
+        await API
+            .get(`/movie/now_playing?api_key=${ApiKey}`)
+            .then(response => {
+                dispatch(toggleIsFetchingAction(false))
+                dispatch(getNowPlayingAction(response.data.results))
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchGetSimilarMovies = (id) => {
+    return async (dispatch) => {
+        await API
+            .get(`/movie/${id}/similar?api_key=${ApiKey}`)
+            .then(response => {
+                dispatch(toggleIsFetchingAction(false))
+                dispatch(getSimilarMoviesAction(response.data.results))
             })
             .catch((err) => {
                 console.log("Error ", err);

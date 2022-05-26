@@ -24,7 +24,7 @@ const About = () => {
                         <a href="https://www.themoviedb.org"> https://www.themoviedb.org</a>
                     </p>
                     <p>
-                        All code is in the public domain 
+                        All code is in the public domain <br />
                         <a href="https://github.com/Wrx246/Films">https://github.com/Wrx246/Films</a>
                     </p>
                     <ul>
