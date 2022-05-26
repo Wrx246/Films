@@ -16,8 +16,10 @@ import FavoriteButton from "../../UI/Buttons/FavoriteButton/FavoriteButton";
 const FilmDetails = () => {
     const movieDetails = useSelector((state) => state.movieReducer.movieDetails);
     const toggleIsFetching = useSelector((state) => state.movieReducer.isFetching);
-    // const checkWatchList = useSelector((state) => state.accountReducer.checkWatchList);
-    // const watchList = useSelector((state) => state.accountReducer.watchList)
+    const inWatchList = useSelector((state) => state.accountReducer.inWatchList)
+    const watchList = useSelector((state) => state.accountReducer.watchList)
+    const checkWatchList = useSelector((state) => state.accountReducer.checkWatchList);
+    
     const { id } = useParams();
     const dispatch = useDispatch();
     const [modal, setModal] = useState(false);
@@ -28,15 +30,15 @@ const FilmDetails = () => {
     useEffect(() => {
         dispatch(fetchGetDetails(id));
         dispatch(fetchGetTrailer(id));
-        dispatch(getWatchList());
-        dispatch(checkFavoriteMovieAction(movieId))
+        dispatch(getWatchList(movieId));
+        // dispatch(checkFavoriteMovieAction(movieId))
         // console.log(checkWatchList)
         // console.log(id)
         // return () => {
         //     dispatch(removeSelectedMovieAction());
         // }
 
-    }, [id, movieId])
+    }, [id, movieId, watchList])
 
     const addToWatch = () => {
         dispatch(addToWatchList(movieId))
@@ -68,7 +70,12 @@ const FilmDetails = () => {
                         <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
                         <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
                         <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
-                        <FavoriteButton addToWatch={addToWatch} ></FavoriteButton>
+                        <FavoriteButton 
+                        checkWatchList={checkWatchList}
+                        movieId={movieId}
+                        watchList={watchList} 
+                        inWatchList={inWatchList} 
+                        addToWatch={addToWatch}></FavoriteButton>
                     </div>
                     <div className={st.details__bottom}>
                         <p className={st.details__description}>{movieDetails.overview}</p>

@@ -3,6 +3,7 @@
     border: 2px solid rgba(255, 206, 0, 0.51);
     height: 50px;
     width: 100px;
+    transition: .2s;
     color: white;
 }
 
@@ -20,10 +21,25 @@
 }
 
 .disabled {
-    background-color: #68ff42;
-    border: 2px solid #68ff42;
+    background-color: #0ada25;
+    border: 2px solid #0ada25;
     height: 50px;
     width: 100px;
     color: white;
+    transition: .2s;
     cursor: auto;
+}
+
+.disabled:hover {
+    background-color: #42ee59;
+    border: 2px solid #42ee59;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.disabled:active {
+    background-color: #04fd25;
+    border: 2px solid #04fd25;
+    transition: .2s;
+    cursor: pointer;
 }
