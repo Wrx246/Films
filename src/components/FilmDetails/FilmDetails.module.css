@@ -79,6 +79,13 @@
     max-height: 50%;
 }
 
+.details__bottom h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+
 /* .details__wrapper {
    display: flex;
    justify-content: center;
@@ -89,4 +96,11 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+}
+
+.similar__body {
+    width: 70%;
+    min-height: 50vh;
+    margin: 0 auto;
+    padding-top: 30px;
 }

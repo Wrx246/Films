@@ -29,12 +29,6 @@ const Popular = (toggleIsFetching) => {
                                  src={`${ApiImageNormal}` + poster_path}
                                  alt={title}/>
                         </div>
-                        {/* <div className={st.popular__title}>
-                            <h3>{title}</h3>
-                        </div> */}
-                        {/* <div className={st.popular__rate}>
-                            <p>{vote_average}</p>
-                        </div> */}
                     </div>
                 </Link>
             </div>

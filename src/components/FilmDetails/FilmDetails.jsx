@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import WatchButton from "../../UI/Buttons/WatchButton/WatchButton";
 import Preloader from "../../UI/Preloader/Preloader";
-import { fetchGetDetails, fetchGetTrailer } from "../../API/Services/FilmService";
+import { fetchGetDetails, fetchGetReviews, fetchGetTrailer } from "../../API/Services/FilmService";
 import Modal from "../../UI/Cards/Modal/Modal";
 import ReactPlayer from "react-player";
 import { addToWatchList, getWatchList } from "../../API/Services/AccountService";
 import FavoriteButton from "../../UI/Buttons/FavoriteButton/FavoriteButton";
 import SimilarCard from "../../UI/Cards/SimilarCard/SimilarCard";
 import RateCard from "../../UI/Cards/RateCard/RateCard";
+import ReviewsCard from "../../UI/Cards/ReviewsCard/ReviewsCard";
 
 
 const FilmDetails = () => {
@@ -32,6 +33,7 @@ const FilmDetails = () => {
     useEffect(() => {
         dispatch(fetchGetDetails(id));
         dispatch(fetchGetTrailer(id));
+        dispatch(fetchGetReviews(movieId));
         dispatch(getWatchList(movieId));
         // dispatch(checkFavoriteMovieAction(movieId))
         // console.log(checkWatchList)
@@ -62,11 +64,11 @@ const FilmDetails = () => {
     } else {
         return (
             <div className={st.details__wrapper}
-            style={{
-                backgroundSize: 'cover',
-                backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
-                backgroundPosition: 'no-repeat center center fixed'
-            }}
+            // style={{
+            //     backgroundSize: 'cover',
+            //     backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
+            //     backgroundPosition: 'no-repeat center center fixed'
+            // }}
             >
                 <Modal visible={modal} setVisible={setModal} setPlayTrailer={setPlayTrailer}>
                     <ReactPlayer playing={playTrailer} controls url={`https://www.youtube.com/watch?v=${trailerKey}`} />
@@ -88,13 +90,19 @@ const FilmDetails = () => {
                     <div className={st.details__bottom}>
                         <p className={st.details__description}>{movieDetails.overview}</p>
                         <WatchButton watchTrailer={watchTrailer} />
+                        <h3>Rate this film</h3>
                         <RateCard />
                     </div>
                     <img className={st.details__img}
                         src={`${ApiImageOriginal}` + movieDetails.poster_path}
                         alt={movieDetails.title} />
                 </div>
-                <SimilarCard movieId={movieId} />
+                <div className={st.similar__body}>
+                    <SimilarCard movieId={movieId} />
+                </div>
+                <div>
+                    <ReviewsCard />
+                </div>
             </div>
         )
     }

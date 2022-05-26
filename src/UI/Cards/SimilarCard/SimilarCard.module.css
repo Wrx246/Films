@@ -1,26 +1,13 @@
-.similar__wrapper {
-    margin: 0 auto;
-    width: 70%;
-    height: 100%;
-}
-
 .similar__title {
     color: #e1bf1f;
     margin-bottom: 20px;
 }
 
-.similar__group {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px;
-    padding-bottom: 20px;
-}
-
-.similar__body {
+.similar__wrapper {
     width: 25vh;
     height: 35vh;
     /*margin-right: 20px;*/
-    /* margin: 20px 20px; */
+    margin: 20px 20px;
     background: #1a1a1a;
     transition: all 0.3s;
 }
@@ -29,7 +16,7 @@
     text-decoration: none;
 }
 
-.similar__body:hover {
+.similar__wrapper:hover {
     transform: scale(1.1);
     transition: all 0.3s;
     cursor: pointer;
@@ -45,15 +32,6 @@
     width: 100%;
     height: 100%;
 }
-
-/* .popular__title {
-    margin: 5px 5px;
-} */
-
-/* .popular__title h3 {
-    color: white;
-    font-weight: bold;
-} */
 
 .similar__rate {
     position: absolute;

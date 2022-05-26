@@ -3,6 +3,7 @@ import {
     getFilmTrailerAction,
     getNowPlayingAction,
     getPopularAction,
+    getReviewsAction,
     getSimilarMoviesAction,
     getTopRatedAction,
     getUpcomingAction,
@@ -119,6 +120,35 @@ export const fetchGetTrailer = (id) => {
             .then(response => {
                 dispatch(getFilmTrailerAction(response.data.results))
                 localStorage.setItem('trailerKey', response.data.results[0].key);
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchPostRateFilm = ({id, rate}) => {
+    return async (dispatch) => {
+        await API
+            .post(`/movie/${id}/rating?api_key=${ApiKey}`, {
+                "media_type": "movie",
+                "value": rate,
+            })
+            // .then(response => {
+            //     dispatch(getWatchListAction(false))
+            // })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchGetReviews = (id) => {
+    return async (dispatch) => {
+        await API
+            .get(`/movie/${id}/reviews?api_key=${ApiKey}`)
+            .then(response => {
+                dispatch(getReviewsAction(response.data.results))
             })
             .catch((err) => {
                 console.log("Error ", err);
