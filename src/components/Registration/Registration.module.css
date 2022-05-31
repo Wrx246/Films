@@ -78,3 +78,13 @@
 .home__button:active {
     color: rgb(91, 83, 161);
 }
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .reg__title {
+        font-size: 30px;
+    }
+    .home__button {
+        margin-left: 15%;
+        font-size: 20px;
+    }
+}

@@ -16,3 +16,8 @@
     max-width: 150px;
 }
 
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .cast__body {
+        max-width: 100px;
+    }
+}

@@ -42,7 +42,9 @@ const Header = () => {
                     <Close setSearchBar={setSearchBar} />
                 </div>
                 <div className={st.logout__wrapper}>
-                    <LoginButton username={username} session_id={session_id} />
+                { isLogin === true || session_id ? 
+                    <LoginButton name={username} /> : 
+                    <LoginButton name={"Login"} />}
                 </div>
             </div>
         )

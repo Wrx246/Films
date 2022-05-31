@@ -78,3 +78,19 @@
 .home__button:active {
     color: rgb(91, 83, 161);
 }
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .reg__input {
+        width: 250px;
+    }
+    .reg__form {
+        padding:  5% 15%;
+    }
+    .reg__title {
+        display: flex;
+        justify-content: center;
+        color: #e1bf1f;
+        font-size: 25px;
+        padding: 20px;
+    }
+}

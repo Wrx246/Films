@@ -61,3 +61,10 @@
 .logoutButton__body:active {
     background-color: rgb(91, 83, 161);
 }
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .logoutButton__body {
+        width: 230px;
+        margin-left: 0%;
+    }
+}

@@ -121,3 +121,27 @@
     margin: 0 auto;
     padding-top: 30px;
 }
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .details__title {
+        font-size: 40px;
+    }
+    .details__date {
+        margin: 5px;
+    }
+    
+    .details__vote {
+        margin: 10px 10px;
+    }
+    
+    .details__count {
+        margin: 10px 10px;
+    }
+    
+    .details__time {
+        margin: 10px 10px;
+    }
+    .details__img {
+        width: 50%;
+    }
+}

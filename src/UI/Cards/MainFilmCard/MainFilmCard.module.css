@@ -10,11 +10,11 @@
 }
 
 .film__info {
-   width: 35%;
-   position: absolute;
-   left: 50px;
-   bottom: 300px;
-   color: white;
+    width: 35%;
+    position: absolute;
+    left: 50px;
+    bottom: 300px;
+    color: white;
 }
 
 .film__info h3 {
@@ -39,7 +39,7 @@
     font-size: 20px;
     color: white;
     font-weight: bold;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     transition: .2s;
     text-decoration: none;
 }
@@ -52,4 +52,19 @@
 .film__button:active {
     background-color: #747472b2;
     transition: .2s;
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .film__info {
+        bottom: 100px;
+    }
+
+    .film__info h3 {
+        font-size: 40px;
+    }
+
+    .film__info p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
 }
