@@ -11,24 +11,25 @@
 
 .details__body {
     margin: 0 auto;
+    padding-top: 100px;
     width: 70%;
     height: 100%;
     display: grid;
     grid-template-areas:
-            "t i"
-            "a i"
-            "d i";
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 20% 10% 70%;
+            "i t"
+            "i a"
+            "i d";
+    grid-template-columns: 40% 50%;
+    grid-template-rows: 15% 15% 80%;
 }
 
 .details__title {
     grid-area: t;
-    color: #e1bf1f;
-    font-size: 40px;
-    font-weight: normal;
+    color: #ffffff;
+    font-size: 70px;
+    font-weight: bolder;
     /* margin: 0px 50px; */
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 
 .details__assets {
@@ -41,38 +42,45 @@
 .details__description {
     grid-area: d;
     color: white;
+    font-weight: bold;
     font-size: 20px;
-    font-weight: lighter;
     margin-bottom: 20px;
-    max-width: 70%;
+    max-width: 100%;
     /* margin: 10px 50px; */
 }
 
 .details__date {
     color: white;
+    font-weight: bold;
+    font-size: 20px;
     margin: 10px;
 }
 
 .details__vote {
     color: white;
+    font-weight: bold;
+    font-size: 20px;
     margin: 10px 50px;
 }
 
 .details__count {
     color: white;
+    font-weight: bold;
+    font-size: 20px;
     margin: 10px 50px;
 }
 
 .details__time {
     color: white;
+    font-weight: bold;
+    font-size: 20px;
     margin: 10px 50px;
 }
 
 .details__img {
     grid-area: i;
-    width: 100%;
+    width: 80%;
     height: 80%;
-    margin-top: 50px;
 }
 
 .details__bottom {

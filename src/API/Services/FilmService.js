@@ -1,4 +1,5 @@
 import {
+    getCastsAction,
     getFilmDetailsAction,
     getFilmTrailerAction,
     getNowPlayingAction,
@@ -127,17 +128,20 @@ export const fetchGetTrailer = (id) => {
     }
 }
 
-export const fetchPostRateFilm = ({id, rate}) => {
+export const fetchPostRateFilm = (id, rate) => {
+    const sessionId = localStorage.getItem('sessionId');
     return async (dispatch) => {
         await API
             .post(`/movie/${id}/rating?api_key=${ApiKey}`, {
-                "media_type": "movie",
+                // "media_type": "movie",
+                "session_id": sessionId,
                 "value": rate,
             })
-            // .then(response => {
-            //     dispatch(getWatchListAction(false))
-            // })
-            .catch((err) => {
+            .then(response => {
+                // dispatch(getWatchListAction(false))
+                console.log(response)
+            })
+            .catch((err) => {   
                 console.log("Error ", err);
             });
     }
@@ -149,6 +153,19 @@ export const fetchGetReviews = (id) => {
             .get(`/movie/${id}/reviews?api_key=${ApiKey}`)
             .then(response => {
                 dispatch(getReviewsAction(response.data.results))
+            })
+            .catch((err) => {
+                console.log("Error ", err);
+            });
+    }
+}
+
+export const fetchGetCasts = (id) => {
+    return async (dispatch) => {
+        await API
+            .get(`/movie/${id}/credits?api_key=${ApiKey}`)
+            .then(response => {
+                dispatch(getCastsAction(response.data.cast))
             })
             .catch((err) => {
                 console.log("Error ", err);

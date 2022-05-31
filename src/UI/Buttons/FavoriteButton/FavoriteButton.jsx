@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFromWatchList } from "../../../API/Services/AccountService";
 import st from './FavoriteButton.module.css';
@@ -16,6 +16,14 @@ const FavoriteButton = ({ addToWatch, inWatchList, checkWatchList, movieId }) =>
         rootStyle.push(st.disabled)
     }
 
+    useEffect(()=> {
+        if(checkWatchList === movieId) {
+            inWatchList = true
+        } else {
+            inWatchList = false
+        } 
+    },[checkWatchList, movieId])
+
     const handlerClick = (e) => {
         e.preventDefault();
         if(checkWatchList !== movieId) {
@@ -30,7 +38,7 @@ const FavoriteButton = ({ addToWatch, inWatchList, checkWatchList, movieId }) =>
     return (
         <>
             <button type="submit" onClick={handlerClick} className={rootStyle.join(' ')} >
-                {inWatchList === false || checkWatchList !== movieId ? "Add to watchlist" : "Remove from watchlist"}
+                {checkWatchList !== movieId || inWatchList === false ? "Add to watchlist" : "Remove from watchlist"}
             </ button>
         </>
     )

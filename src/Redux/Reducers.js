@@ -11,6 +11,7 @@ export const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 export const GET_FILM_TRAILER = "GET_FILM_TRAILER";
 export const GET_SIMILAR_MOVIES = "GET_SIMILAR_MOVIES";
 export const GET_REVIEWS = "GET_REVIEWS"
+export const GET_CASTS = "GET_CASTS"
 
 const initialState = {
     movie: [],
@@ -21,6 +22,7 @@ const initialState = {
     trailer: [],
     similarMovies: [],
     reviews: [],
+    casts: [],
     isFetching: true,
 }
 
@@ -40,6 +42,8 @@ export const movieReducer = (state = initialState, { type, payload }) => {
             return { ...state, movie: payload };
         case GET_FILM_DETAILS:
             return { ...state, movieDetails: payload };
+        case GET_CASTS:
+            return { ...state, casts: payload.slice(0, 5) }
         case REMOVE_SELECTED_MOVIE:
             return { ...state, movieDetails: [] };
         case SET_SEARCH_FILMS:
@@ -70,3 +74,4 @@ export const toggleIsFetchingAction = (payload) => ({ type: TOGGLE_IS_FETCHING, 
 export const getFilmTrailerAction = (payload) => ({ type: GET_FILM_TRAILER, payload });
 export const getSimilarMoviesAction = (payload) => ({ type: GET_SIMILAR_MOVIES, payload });
 export const getReviewsAction = (payload) => ({ type: GET_REVIEWS, payload })
+export const getCastsAction = (payload) => ({ type: GET_CASTS, payload })
