@@ -13,4 +13,6 @@
     flex-direction: column;
     color: white;
     font-weight: bold;
+    max-width: 150px;
 }
+

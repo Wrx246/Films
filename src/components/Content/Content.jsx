@@ -6,6 +6,7 @@ import Upcoming from "../../UI/Cards/Upcoming/Upcoming";
 import { fetchGetNowPlaying, fetchGetPopular, fetchGetUpcoming } from "../../API/Services/FilmService";
 import Preloader from "../../UI/Preloader/Preloader";
 import NowPlaying from "../../UI/Cards/NowPlaying/NowPlaying";
+import MainFilmCard from "../../UI/Cards/MainFilmCard/MainFilmCard";
 
 
 const Content = () => {
@@ -50,6 +51,9 @@ const Content = () => {
         } else {
             return (
                 <div className={st.content}>
+                    <div>
+                        <MainFilmCard />
+                    </div>
                     <div className={st.popular__wrapper}>
                         <h1 className={st.popular__title}>
                             Popular today

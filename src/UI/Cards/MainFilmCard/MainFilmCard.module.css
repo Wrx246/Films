@@ -1,0 +1,55 @@
+.film__wrapper {
+    height: 90vh;
+    position: relative;
+}
+
+.film__wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.film__info {
+   width: 35%;
+   position: absolute;
+   left: 50px;
+   bottom: 300px;
+   color: white;
+}
+
+.film__info h3 {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.film__info p {
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.film__button {
+    margin-left: 20px;
+    width: 130px;
+    height: 50px;
+    border: none;
+    border-radius: 7px;
+    background-color: #8b8a868c;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: .2s;
+    text-decoration: none;
+}
+
+.film__button:hover {
+    background-color: #aaaaa9b2;
+    transition: .2s;
+}
+
+.film__button:active {
+    background-color: #747472b2;
+    transition: .2s;
+}

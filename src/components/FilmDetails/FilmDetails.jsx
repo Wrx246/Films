@@ -67,34 +67,36 @@ const FilmDetails = () => {
     } else {
         return (
             <div className={st.details__wrapper}
-            style={{
-                backgroundSize: 'cover',
-                backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
-                backgroundPosition: 'no-repeat center center fixed'
-            }}
+                style={{
+                    backgroundSize: 'cover',
+                    backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
+                    backgroundPosition: 'no-repeat center center fixed'
+                }}
             >
                 <Modal visible={modal} setVisible={setModal} setPlayTrailer={setPlayTrailer}>
                     <ReactPlayer playing={playTrailer} controls url={`https://www.youtube.com/watch?v=${trailerKey}`} />
                 </Modal>
                 <div className={st.details__body} key={id}>
-                    <h2 className={st.details__title}>{movieDetails.title}</h2>
-                    <div className={st.details__assets}>
-                        <p className={st.details__date}>Release: <br />{formatDate}</p>
-                        <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
-                        <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
-                        <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
-                        <FavoriteButton
-                            checkWatchList={checkWatchList}
-                            movieId={movieId}
-                            watchList={watchList}
-                            inWatchList={inWatchList}
-                            addToWatch={addToWatch}></FavoriteButton>
-                    </div>
-                    <div className={st.details__bottom}>
-                        <p className={st.details__description}>{movieDetails.overview}</p>
-                        <WatchButton watchTrailer={watchTrailer} />
-                        <h3>Casts</h3>
-                        <CastCard />
+                    <div>
+                        <h2 className={st.details__title}>{movieDetails.title}</h2>
+                        <div className={st.details__assets}>
+                            <p className={st.details__date}>Release: <br />{formatDate}</p>
+                            <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
+                            <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
+                            <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
+                            <FavoriteButton
+                                checkWatchList={checkWatchList}
+                                movieId={movieId}
+                                watchList={watchList}
+                                inWatchList={inWatchList}
+                                addToWatch={addToWatch}></FavoriteButton>
+                        </div>
+                        <div className={st.details__bottom}>
+                            <p className={st.details__description}>{movieDetails.overview}</p>
+                            <WatchButton watchTrailer={watchTrailer} />
+                            <h3>Casts</h3>
+                            <CastCard />
+                        </div>
                     </div>
                     <img className={st.details__img}
                         src={`${ApiImageOriginal}` + movieDetails.poster_path}

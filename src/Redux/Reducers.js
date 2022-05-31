@@ -15,6 +15,7 @@ export const GET_CASTS = "GET_CASTS"
 
 const initialState = {
     movie: [],
+    mainMovie: [],
     upcomingMovie: [],
     nowPlaying: [],
     movieDetails: [],
@@ -29,7 +30,7 @@ const initialState = {
 export const movieReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_POPULAR:
-            return { ...state, movie: payload };
+            return { ...state, movie: payload, mainMovie: payload[0] };
         case GET_UPCOMING:
             return { ...state, upcomingMovie: payload };
         case GET_NOW_PLAYING:
