@@ -16,16 +16,14 @@
     max-width: 150px;
 }
 
-@media screen and (max-width: 1366px) and (min-width: 1024px) {
-    .cast__body {
-        max-width: 100px;
-    }
-}
 
 @media screen and (max-width: 1023px) and (min-width: 860px) {
-    .cast__body {
-        max-width: 70px;
+    .cast__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 20px;
     }
+    
     .cast__body p {
         font-size: 15px;
         font-weight: normal;
@@ -33,9 +31,38 @@
 }
 
 @media screen and (max-width: 859px) and (min-width: 640px) {
-    .cast__body {
-        max-width: 100px;
+    .cast__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 20px;
     }
+    
+    .cast__body p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+}
+
+@media screen and (max-width: 639px) and (min-width: 390px) {
+    .cast__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .cast__body p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .cast__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-gap: 20px;
+    }
+
     .cast__body p {
         font-size: 15px;
         font-weight: normal;

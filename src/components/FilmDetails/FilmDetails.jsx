@@ -105,7 +105,7 @@ const FilmDetails = () => {
                 <div className={st.similar__body}>
                     <SimilarCard movieId={movieId} />
                 </div>
-                <div>
+                <div className={st.reviews__body}>
                     <ReviewsCard />
                 </div>
             </div>

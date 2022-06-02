@@ -22,10 +22,6 @@ const SearchCard = () => {
                                 src={`${ApiImageNormal}` + poster_path}
                                 alt={title} />
                         </div>
-                        {/* <div className={st.searchCard__title}>
-                            <h3>{title}</h3>
-                        </div> */}
-
                     </div>
                 </Link>
             </div>
@@ -33,9 +29,6 @@ const SearchCard = () => {
     })
     return (
         <div className={st.search__body}>{renderSearchCard}</div>
-        // <Slider {...settings}>
-
-        // </Slider>
     )
 }
 
