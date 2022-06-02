@@ -6,6 +6,9 @@
 .logout__wrapper {
     background-color: #000409;
     min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logout__body {
@@ -13,8 +16,9 @@
     height: 80vh;
     background-color: rgb(35, 30, 83);
     border-radius: 1%;
-    position: absolute;
-    margin: 2% 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logout__title {
@@ -26,9 +30,7 @@
 }
 
 .logout__description {
-    /* position: absolute;
-    bottom: 0px; */
-    padding: 5% 15%;
+    /* padding: 5% 15%; */
     color: white;
 }
 
@@ -49,7 +51,6 @@
     border: none;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 10%;
     font-size: 25px;
     color: white;
 }
@@ -62,9 +63,27 @@
     background-color: rgb(91, 83, 161);
 }
 
-@media screen and (max-width: 1366px) and (min-width: 1024px) {
+@media screen and (max-width: 440px) {
+    .logout__title {
+        font-size: 30px;
+    }
+    .logout__body {
+        width: 50vh;
+        height: 80vh;
+        background-color: rgba(35, 30, 83, 0);
+        border-radius: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .logoutButton__body {
-        width: 230px;
-        margin-left: 0%;
+        width: 200px;
+        height: 50px;
+        background-color: rgb(124, 116, 196);
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        font-size: 25px;
+        color: white;
     }
 }

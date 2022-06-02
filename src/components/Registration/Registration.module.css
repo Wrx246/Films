@@ -6,6 +6,9 @@
 .reg__wrapper {
     background-color: #000409;
     min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .reg__body {
@@ -46,10 +49,8 @@
 }
 
 .reg__description {
-    /* position: absolute;
-    bottom: 0px; */
-    padding: 5% 15%;
     color: white;
+    text-align: center;
 }
 
 .reg__description a{
@@ -65,7 +66,7 @@
     border: none;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 23%;
+    /* margin-left: 23%; */
     font-size: 25px;
     color: white;
     text-decoration: none;
@@ -79,12 +80,32 @@
     color: rgb(91, 83, 161);
 }
 
-@media screen and (max-width: 1366px) and (min-width: 1024px) {
-    .reg__title {
-        font-size: 30px;
+@media screen and (max-width: 440px) {
+    .reg__body {
+        width: 40vh;
+        height: 80vh;
+        background-color: rgba(35, 30, 83, 0);
+        border-radius: 1%;
+        position: absolute;
+        margin: 2% 38%;
     }
-    .home__button {
-        margin-left: 15%;
+    .reg__title {
+        font-size: 25px;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .reg__body {
+        width: 25vh;
+        height: 80vh;
+        background-color: rgba(35, 30, 83, 0);
+        border-radius: 1%;
+        position: absolute;
+        margin: 2% 38%;
+    }
+    .reg__title {
         font-size: 20px;
+        padding: 20px;
     }
 }

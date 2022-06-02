@@ -10,7 +10,7 @@ const RegButton = ({ name, setRequestToken }) => {
     }
 
     return (
-        <div>
+        <div className={st.regButton__wrapper}>
             <button
                 type='submit'
                 onClick={handlerSubmit}
