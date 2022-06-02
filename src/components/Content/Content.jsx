@@ -19,68 +19,68 @@ const Content = () => {
         dispatch(fetchGetNowPlaying());
     }, []);
 
-        if (toggleIsFetching === true) {
-            return (
-                <div className={st.content}>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Popular today
-                        </h1>
-                        <div className={st.preloader}>
-                            <Preloader />
-                        </div>
-                    </div>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Upcoming in cinema
-                        </h1>
-                        <div className={st.preloader}>
-                            <Preloader />
-                        </div>
-                    </div>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Now Playing
-                        </h1>
-                        <div className={st.preloader}>
-                            <Preloader />
-                        </div>
+    if (toggleIsFetching === true) {
+        return (
+            <div className={st.content}>
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Popular today
+                    </h1>
+                    <div className={st.preloader}>
+                        <Preloader />
                     </div>
                 </div>
-            )
-        } else {
-            return (
-                <div className={st.content}>
-                    <div>
-                        <MainFilmCard />
-                    </div>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Popular today
-                        </h1>
-                        <div className={st.popular__list}>
-                            <Popular toggleIsFetching={toggleIsFetching} />
-                        </div>
-                    </div>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Upcoming in cinema
-                        </h1>
-                        <div className={st.popular__list}>
-                            <Upcoming />
-                        </div>
-                    </div>
-                    <div className={st.popular__wrapper}>
-                        <h1 className={st.popular__title}>
-                            Now Playing
-                        </h1>
-                        <div className={st.popular__list}>
-                            <NowPlaying />
-                        </div>
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Upcoming in cinema
+                    </h1>
+                    <div className={st.preloader}>
+                        <Preloader />
                     </div>
                 </div>
-            )
-        }
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Now Playing
+                    </h1>
+                    <div className={st.preloader}>
+                        <Preloader />
+                    </div>
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className={st.content}>
+                <div>
+                    <MainFilmCard />
+                </div>
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Popular today
+                    </h1>
+                    <div className={st.popular__list}>
+                        <Popular toggleIsFetching={toggleIsFetching} />
+                    </div>
+                </div>
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Upcoming in cinema
+                    </h1>
+                    <div className={st.popular__list}>
+                        <Upcoming />
+                    </div>
+                </div>
+                <div className={st.popular__wrapper}>
+                    <h1 className={st.popular__title}>
+                        Now Playing
+                    </h1>
+                    <div className={st.popular__list}>
+                        <NowPlaying />
+                    </div>
+                </div>
+            </div >
+        )
+    }
 }
 
 export default Content;

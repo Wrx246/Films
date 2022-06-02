@@ -48,3 +48,39 @@
     margin: 10px;
     background-color: yellowgreen;
 }
+
+
+@media screen and (max-width: 1600px) and (min-width: 640px) {
+    .popular__wrapper {
+        width: 20vh;
+        height: 30vh;
+        margin: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 639px) and (min-width: 480px) {
+    .popular__wrapper {
+        width: 20vh;
+        height: 30vh;
+        margin: 20px 20px;
+    }
+
+    .popular__rate {
+        font-size: 15px;
+        width: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .popular__wrapper {
+        width: 25vh;
+        height: 35vh;
+        margin: 0 auto;
+        /* margin: 20px 20px; */
+    }
+
+    .popular__rate {
+        font-size: 15px;
+        width: 30px;
+    }
+}

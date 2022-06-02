@@ -5,6 +5,10 @@
     padding: 0px 15px;
 }
 
+.burger__wrapper {
+    display: none;
+}
+
 .modal__wrapper {
     display: flex;
     justify-content: space-between;
@@ -42,4 +46,38 @@
 .logo__body {
     width: 5vh;
     height: 5vh;
+}
+
+@media screen and (max-width: 639px) and (min-width: 390px) {
+    .burger__wrapper {
+        display: block;
+        width: 50px;
+        margin: 15px;
+    }
+    .modal__wrapper {
+        display: none;
+    }
+    .logo__wrapper {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 389px) {
+    .header {
+        width: 100%;
+    }
+    .burger__wrapper {
+        display: block;
+        width: 50px;
+        margin: 15px;
+    }
+    .modal__wrapper {
+        display: none;
+    }
+    .logo__wrapper {
+        display: none;
+    }
+    .logout__wrapper {
+        padding: 10px 0px;
+    }
 }

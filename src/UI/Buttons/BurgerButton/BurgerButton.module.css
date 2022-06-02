@@ -1,0 +1,75 @@
+.burger__body {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: none;
+    background: white;
+}
+
+.burger__body.active {
+    display: flex;
+    justify-content: start;
+    /* align-items: center; */
+    gap: 20px;
+    flex-direction: column;
+    left: 0;
+    top: 62px;
+    width: 100vh;
+    height: auto;
+    z-index: 2;
+    transition: .2s;
+    background-color: rgb(39, 39, 39);
+    padding: 10px;
+}
+
+.navbar__item {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffc34a;
+}
+
+.navbar__item:active {
+    color: white;
+}
+
+.burger__btn {
+    background-color: rgba(15, 15, 15, 0);
+    border: 1px solid rgba(15, 15, 15, 0);
+    color: white;
+    /* width: 150px; */
+    position: fixed;
+    z-index: 100;
+}
+
+.top__bun {
+    border: 2px solid white;
+    transition: .2s;
+}
+
+.meat {
+    margin-top: 10px;
+    border: 2px solid white;
+    transition: .2s;
+}
+
+.bottom__bun {
+    margin-top: 10px;
+    border: 2px solid white;
+    transition: .2s;
+}
+
+.top__bun.activeTop {
+    margin-top: 15px;
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -1px);
+}
+
+.meat.activeMeat {
+    transform: rotate(-45deg) translate(10px, -10px);
+}
+
+.bottom__bun.activeBot {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}

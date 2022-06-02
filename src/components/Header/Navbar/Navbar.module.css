@@ -28,3 +28,14 @@
     color: #705d0a;
     transition: .2s;
 }
+
+@media screen and (max-width: 639px) and (min-width: 390px) {
+    
+}
+
+@media screen and (max-width: 412px) and (min-width: 390px) {
+    .navbar__item {
+        padding: 0px 12px;
+        font-size: 15px;
+    }
+}

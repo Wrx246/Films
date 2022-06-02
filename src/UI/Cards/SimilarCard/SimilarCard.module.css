@@ -44,3 +44,22 @@
     margin: 10px;
     background-color: yellowgreen;
 }
+
+@media screen and (max-width: 1023px) and (min-width: 820px) {
+    .similar__wrapper {
+        width: 20vh;
+        height: 30vh;
+        margin: 10px 10px;
+    }
+}
+
+@media screen and (max-width: 859px) and (min-width: 640px) {
+    .similar__wrapper {
+        width: 13vh;
+        height: 20vh;
+        margin: 10px 10px;
+    }
+    .similar__title {
+        margin-left: 70px;
+    }
+}

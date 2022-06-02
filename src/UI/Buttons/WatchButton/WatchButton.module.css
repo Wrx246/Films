@@ -20,3 +20,17 @@
     background-color: #f5b71c;
     transition: .2s;
 }
+
+@media screen and (max-width: 859px) and (min-width: 640px) {
+    .watchButton {
+        width: 150px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 412px) and (min-width: 390px) {
+    .watchButton {
+        width: 130px;
+        font-size: 15px;
+    }
+}

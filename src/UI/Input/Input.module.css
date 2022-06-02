@@ -20,3 +20,10 @@
         margin-top: 5px;
     }
 }
+
+@media screen and (max-width: 412px) and (min-width: 390px) {
+    .input__body {
+        height: 4vh;
+        width: 35vh;
+    }
+}

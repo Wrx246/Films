@@ -12,7 +12,46 @@ const Popular = (toggleIsFetching) => {
         infinite: true,
         speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: false
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2,
+                infinite: true,
+                dots: false
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false
+              }
+            }
+          ]
     };
 
     const renderPopular = movie.map((movie) => {
@@ -20,7 +59,7 @@ const Popular = (toggleIsFetching) => {
         return (
             <div>
                 <Link to={`/movie/${movie.id}`} className={st.title__body}>
-                    <div className={st.popular__wrapper} key={id}>
+                    <div className={st.popular__wrapper} key={id} >
                         <div className={st.popular__pic}>
                         <div className={st.popular__rate}>
                             <p>{vote_average}</p>

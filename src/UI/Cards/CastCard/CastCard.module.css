@@ -21,3 +21,23 @@
         max-width: 100px;
     }
 }
+
+@media screen and (max-width: 1023px) and (min-width: 860px) {
+    .cast__body {
+        max-width: 70px;
+    }
+    .cast__body p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+}
+
+@media screen and (max-width: 859px) and (min-width: 640px) {
+    .cast__body {
+        max-width: 100px;
+    }
+    .cast__body p {
+        font-size: 15px;
+        font-weight: normal;
+    }
+}
