@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Moment from 'moment';
 import st from './TopRated.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -12,6 +13,8 @@ import Preloader from "../../UI/Preloader/Preloader";
 const TopRated = () => {
     const movie = useSelector((state) => state.movieReducer.movie);
     const toggleIsFetching = useSelector((state) => state.movieReducer.isFetching);
+
+    const formatDate = Moment(movie.release_date).format("MMM Do YY");
 
     const dispatch = useDispatch();
     const [selectedSort, setSelectedSort] = useState('');
@@ -71,7 +74,7 @@ const TopRated = () => {
                                             alt={movie.title} />
                                         <p className={st.item__title}>{movie.title}</p>
                                         <p className={st.item__vote}>{movie.vote_average}</p>
-                                        <p className={st.item__date}>{movie.release_date}</p>
+                                        <p className={st.item__date}>{formatDate}</p>
                                     </div>
                                 </Link>
                             )

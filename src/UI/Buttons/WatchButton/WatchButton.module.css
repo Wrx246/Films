@@ -28,7 +28,7 @@
     }
 }
 
-@media screen and (max-width: 412px) and (min-width: 390px) {
+@media screen and (max-width: 412px) {
     .watchButton {
         width: 130px;
         font-size: 15px;
