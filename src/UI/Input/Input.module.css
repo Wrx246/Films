@@ -5,7 +5,7 @@
 .input__body {
     height: 4vh;
     width: 50vh;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px aliceblue solid;
     font-size: 20px;
     padding: 10px;
@@ -15,15 +15,21 @@
     border: 1px aliceblue solid;
 }
 
-@media screen and (max-width: 1366px) and (min-width: 1024px) {
-    .input {
-        margin-top: 5px;
+
+@media screen and (max-width: 490px) and (min-width: 390px) {
+    .input__body {
+        max-width: 35vh;
     }
 }
 
-@media screen and (max-width: 412px) and (min-width: 390px) {
+@media screen and (max-width: 390px) {
     .input__body {
-        height: 4vh;
-        width: 35vh;
+        max-width: 30vh;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .input__body {
+        max-width: 25vh;
     }
 }

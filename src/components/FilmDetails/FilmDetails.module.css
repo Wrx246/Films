@@ -337,6 +337,10 @@
         width: 90%;
         min-height: 30vh;
     }
+
+    .reviews__body {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 390px) {

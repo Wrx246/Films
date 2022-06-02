@@ -15,7 +15,7 @@ const Header = () => {
 
 
 
-    if (searchBar === false) {
+    // if (searchBar === false) {
         return (
             <div className={st.header}>
                 <div className={st.logo__wrapper}>
@@ -35,24 +35,24 @@ const Header = () => {
                 </div>
             </div>
         )
-    } else {
-        return (
-            <div className={st.header}>
-                <div className={st.logo__wrapper}>
-                    <a href="#"><div className={st.logo__body} /></a>
-                </div>
-                <div className={st.modal__wrapper}>
-                    <Input />
-                    <Close setSearchBar={setSearchBar} />
-                </div>
-                <div className={st.logout__wrapper}>
-                    {isLogin === true || session_id ?
-                        <LoginButton name={username} /> :
-                        <LoginButton name={"Login"} />}
-                </div>
-            </div>
-        )
-    }
+    // } else {
+    //     return (
+    //         <div className={st.header}>
+    //             <div className={st.logo__wrapper}>
+    //                 <a href="#"><div className={st.logo__body} /></a>
+    //             </div>
+    //             <div className={st.modal__wrapper}>
+    //                 <Input />
+    //                 <Close setSearchBar={setSearchBar} />
+    //             </div>
+    //             <div className={st.logout__wrapper}>
+    //                 {isLogin === true || session_id ?
+    //                     <LoginButton name={username} /> :
+    //                     <LoginButton name={"Login"} />}
+    //             </div>
+    //         </div>
+        // )
+    // }
 }
 
 export default Header;

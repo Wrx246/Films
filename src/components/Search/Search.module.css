@@ -14,10 +14,11 @@
     min-height: 50vh;
     margin: 0 auto;
     padding-top: 30px;
+    text-align: center;
 }
 
 .search__title {
-    padding-left: 30px;
+    margin: 0 auto;
     color: #e1bf1f;
 }
 
@@ -25,4 +26,15 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+}
+
+.search__panel {
+    padding-top: 30px;
+    margin: 0 auto
+}
+
+@media screen and (max-width: 280px) {
+    .search__wrapper {
+        width: 100%;
+    }
 }

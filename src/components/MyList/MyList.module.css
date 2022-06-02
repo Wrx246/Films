@@ -28,3 +28,40 @@
     border-bottom: 2px solid #e1bf1f;
 }
 
+@media screen and (max-width: 1366px) and (min-width: 1024px) {
+    .myList__group {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 890px) {
+    .myList__group {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .myList__group {
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .myList__group {
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .myList__title {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .myList__title {
+        font-size: 20px;
+    }
+}

@@ -55,3 +55,31 @@
     cursor: pointer;
     transition: .2s;
 }
+
+@media screen and (max-width: 890px) {
+    .myCard__wrapper {
+        width: 30vh;
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .myCard__wrapper {
+        width: 35vh;
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .myCard__wrapper {
+        width: 30vh;
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .myCard__wrapper {
+        width: 25vh;
+        height: 30vh;
+    }
+}
