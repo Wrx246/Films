@@ -32,7 +32,7 @@ const BurgerButton = () => {
             <ul className={rootStyle.join(' ')}>
                 <Link to='/' className={st.navbar__item}>Home</Link>
                 <Link to='/top_rated' className={st.navbar__item}>Top Rated</Link>
-                <Link to='/my_list' className={st.navbar__item}>My watch list</Link>
+                <Link to='/my_list' className={st.navbar__item}>My Watch List</Link>
                 <Link to='/search' className={st.navbar__item}>Search</Link>
             </ul>
         </div>

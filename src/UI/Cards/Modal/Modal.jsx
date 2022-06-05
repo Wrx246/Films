@@ -17,7 +17,7 @@ const Modal = ({ children, visible, setVisible, setPlayTrailer }) => {
     }
 
     return (
-        <div className={rootStyle.join(' ')}>
+        <div onClick={handlerClick} className={rootStyle.join(' ')}>
             <div className={st.modalContent}>
                 {children}
                     <button onClick={handlerClick}  className={st.closeButton} type='button'>X</button>

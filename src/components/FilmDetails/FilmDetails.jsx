@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Moment from 'moment';
 import st from "./FilmDetails.module.css";
-import { ApiImageBig, ApiImageOriginal } from "../../API/ApiKey";
+import { ApiImageBig, ApiImageNormal, ApiImageOriginal } from "../../API/ApiKey";
 import { checkFavoriteMovieAction } from "../../Redux/AccountReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -55,6 +55,17 @@ const FilmDetails = () => {
         dispatch(fetchPostRateFilm(movieId, rating))
     }
 
+    const bigMonitorStyle = {
+        backgroundSize: 'cover',
+        backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
+        backgroundPosition: 'no-repeat center center fixed'
+    }
+
+    const phoneStyle = {
+        backgroundColor: `#000409`,
+    }
+
+
 
     if (toggleIsFetching === true) {
         return (
@@ -67,30 +78,33 @@ const FilmDetails = () => {
     } else {
         return (
             <div className={st.details__wrapper}
-                style={{
-                    backgroundSize: 'cover',
-                    backgroundImage: `url(${ApiImageOriginal}${movieDetails.poster_path})`,
-                    backgroundPosition: 'no-repeat center center fixed'
-                }}
-            >
+                style={ window.screen.width < '439' ? phoneStyle : bigMonitorStyle}>
                 <Modal visible={modal} setVisible={setModal} setPlayTrailer={setPlayTrailer}>
                     <ReactPlayer playing={playTrailer} controls url={`https://www.youtube.com/watch?v=${trailerKey}`} />
                 </Modal>
                 <div className={st.details__body} key={id}>
                     <div>
                         <h2 className={st.details__title}>{movieDetails.title}</h2>
-                        <div className={st.details__assets}>
-                            <p className={st.details__date}>Release: <br />{formatDate}</p>
-                            <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
-                            <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
-                            <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
-                            <FavoriteButton
-                                checkWatchList={checkWatchList}
-                                movieId={movieId}
-                                watchList={watchList}
-                                inWatchList={inWatchList}
-                                addToWatch={addToWatch}></FavoriteButton>
+                        <div className={st.phone__wr}>
+                            <div className={st.details__assets}>
+                                <p className={st.details__date}>Release: <br />{formatDate}</p>
+                                <p className={st.details__vote}>Vote: {movieDetails.vote_average}</p>
+                                <p className={st.details__count}>Budget: <br />{movieDetails.budget}$</p>
+                                <p className={st.details__time}>Runtime: <br />{movieDetails.runtime} min</p>
+                                <FavoriteButton
+                                    checkWatchList={checkWatchList}
+                                    movieId={movieId}
+                                    watchList={watchList}
+                                    inWatchList={inWatchList}
+                                    addToWatch={addToWatch}></FavoriteButton>
+                            </div>
+                            <div>
+                                <img className={st.phone__img}
+                                    src={`${ApiImageNormal}` + movieDetails.poster_path}
+                                    alt={movieDetails.title} />
+                            </div>
                         </div>
+
                         <div className={st.details__bottom}>
                             <p className={st.details__description}>{movieDetails.overview}</p>
                             <WatchButton watchTrailer={watchTrailer} />
@@ -108,7 +122,7 @@ const FilmDetails = () => {
                 <div className={st.reviews__body}>
                     <ReviewsCard />
                 </div>
-            </div>
+            </div >
         )
     }
 }
