@@ -3,6 +3,8 @@
 
 [Demo](https://yourfilmtv.netlify.app)
 
+#### At the moment, the API doesn't work in the Russian Federation and the Republic of Belarus, you need a VPN to view
+
 
 ## Main page
 ![app image](./src/assets/img/yourfilmtv_main.png)
